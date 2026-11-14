@@ -48,3 +48,4 @@ REVIEW-*.md
 !/scripts/add_dex.py
 !/scripts/md_to_docx.py
 /scripts/__pycache__/
+/scripts/*.ps1

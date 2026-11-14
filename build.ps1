@@ -1,3 +1,9 @@
+param(
+    [string]$KsPass = $env:CET46_KS_PASS
+)
+
+if (-not $KsPass) { $KsPass = $env:CET46_KS_PASS }
+
 $ErrorActionPreference = 'Stop'
 
 $Base = Split-Path -Parent $MyInvocation.MyCommand.Path
@@ -10,9 +16,15 @@ $App = Join-Path $Root 'app\src\main'
 $Build = Join-Path $Root 'build'
 $Dist = Join-Path $Root 'dist'
 $AarDir = Join-Path $Root 'vendor\aar'
-# Python 解释器：优先用环境变量，默认走 PATH 里的 python
-$Py = if ($env:CET46_PYTHON) { $env:CET46_PYTHON } else { 'python' }
-if (-not (Test-Path $Py)) { $Py = 'python' }
+# Python 解释器：优先环境变量，其次 PATH 里的真 python（跳过 Windows 商店占位符）
+$Py = $env:CET46_PYTHON
+if (-not $Py -or -not (Test-Path $Py)) {
+    $cand = Get-Command python -ErrorAction SilentlyContinue | Select-Object -First 1
+    if ($cand -and $cand.Source -notmatch 'WindowsApps') { $Py = $cand.Source }
+}
+if (-not $Py -or -not (Test-Path $Py)) {
+    throw ' 找不到可用的 Python：请设置 $env:CET46_PYTHON = "python.exe 的完整路径"'
+}
 
 $VersionCode = 4
 $VersionName = '1.2.0'
@@ -87,14 +99,26 @@ $Sources = @(Get-ChildItem (Join-Path $App 'java') -Recurse -Filter *.java | For
 $RSources = @(Get-ChildItem $Gen -Recurse -Filter *.java | ForEach-Object { $_.FullName })
 $AllSources = $Sources + $RSources
 $CpStr = (@((Join-Path $Platform 'android.jar')) + $AarJars) -join ';'
-& (Join-Path $Jdk 'bin\javac.exe') `
-    -encoding UTF-8 `
-    -source 8 -target 8 `
-    -classpath $CpStr `
-    -Xlint:-options `
-    -d $Classes `
-    $AllSources
-if ($LASTEXITCODE -ne 0) { throw 'javac failed' }
+# javac 的提示写在 stderr，PowerShell 会把它当成错误。改用 Start-Process 接管，
+# 只依据退出码判断成功与否，失败时把 stderr 打出来。
+# javac 的提示写在 stderr，PowerShell 会当成错误；改用 Start-Process 只看退出码
+$javacArgs = @(
+    '-encoding', 'UTF-8',
+    '-source', '8', '-target', '8',
+    '-classpath', $CpStr,
+    '-Xlint:-options',
+    '-d', $Classes
+) + $AllSources
+$javacOut = Join-Path $Build 'javac.out'
+$javacErr = Join-Path $Build 'javac.err'
+$jp = Start-Process -FilePath (Join-Path $Jdk 'bin\javac.exe') -ArgumentList $javacArgs `
+    -NoNewWindow -Wait -PassThru `
+    -RedirectStandardOutput $javacOut -RedirectStandardError $javacErr
+if ($jp.ExitCode -ne 0) {
+    if (Test-Path $javacErr) { Get-Content $javacErr | Write-Host }
+    if (Test-Path $javacOut) { Get-Content $javacOut | Write-Host }
+    throw 'javac failed'
+}
 
 Write-Host '==> d8'
 $ClassFiles = @(Get-ChildItem $Classes -Recurse -Filter *.class | ForEach-Object { $_.FullName })

@@ -87,3 +87,9 @@ HANDOFF.md                           开发交接：构建细节与踩坑记录
 - 例句 Tatoeba（CC BY 2.0 FR）
 - 同义词 Princeton WordNet 3.0
 - 离线识别 Google ML Kit
+
+## 许可
+
+本项目代码采用 [MIT 许可证](LICENSE)。
+
+随附数据与第三方组件遵循各自许可：词库 ECDICT（MIT）、例句 Tatoeba（CC BY 2.0 FR）、同义词 Princeton WordNet 3.0、离线识别 Google ML Kit。

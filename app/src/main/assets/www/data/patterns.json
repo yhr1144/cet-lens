@@ -1,0 +1,2160 @@
+{
+ "v": 1,
+ "source": "四六级高分作文常见句式与结构整理（原创改写）",
+ "categories": [
+  {
+   "id": "opening",
+   "name": "开头引入",
+   "icon": "sparkles"
+  },
+  {
+   "id": "opinion",
+   "name": "观点态度",
+   "icon": "message"
+  },
+  {
+   "id": "cause",
+   "name": "原因分析",
+   "icon": "target"
+  },
+  {
+   "id": "effect",
+   "name": "结果影响",
+   "icon": "trend"
+  },
+  {
+   "id": "example",
+   "name": "举例论证",
+   "icon": "list"
+  },
+  {
+   "id": "contrast",
+   "name": "对比让步",
+   "icon": "refresh"
+  },
+  {
+   "id": "suggestion",
+   "name": "建议措施",
+   "icon": "check"
+  },
+  {
+   "id": "conclusion",
+   "name": "总结升华",
+   "icon": "award"
+  },
+  {
+   "id": "chart",
+   "name": "图表数据",
+   "icon": "grid"
+  },
+  {
+   "id": "letter",
+   "name": "书信应用",
+   "icon": "writing"
+  },
+  {
+   "id": "translation",
+   "name": "翻译文化",
+   "icon": "translate"
+  },
+  {
+   "id": "universal",
+   "name": "万能骨架",
+   "icon": "book"
+  }
+ ],
+ "patterns": [
+  {
+   "cat": "opening",
+   "en": "With the rapid development of ..., ... has become a hot topic among the public.",
+   "zh": "随着……的快速发展，……已成为公众热议的话题。",
+   "use": "现象分析、社会话题开头；正式写作",
+   "level": "四级",
+   "tags": [
+    "科技",
+    "社会"
+   ],
+   "id": "p01",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "opening",
+   "en": "In recent years, there has been a growing concern over ...",
+   "zh": "近年来，人们对……越来越关注。",
+   "use": "问题类、环保/教育话题开头",
+   "level": "四六级",
+   "tags": [
+    "社会",
+    "环保"
+   ],
+   "id": "p02",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "opening",
+   "en": "Against the backdrop of ..., the issue of ... has aroused widespread concern.",
+   "zh": "在……的背景下，……问题引发了广泛关注。",
+   "use": "六级议论文、正式开头",
+   "level": "六级",
+   "tags": [
+    "全球化",
+    "文化"
+   ],
+   "id": "p03",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "opening",
+   "en": "When it comes to ..., opinions vary from person to person.",
+   "zh": "谈到……，人们看法不一。",
+   "use": "观点对比型开头",
+   "level": "四级",
+   "tags": [
+    "观点"
+   ],
+   "id": "p04",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "opening",
+   "en": "It is universally acknowledged that ... plays an indispensable role in ...",
+   "zh": "众所周知，……在……中不可或缺。",
+   "use": "万能开头；强调重要性",
+   "level": "四六级",
+   "tags": [
+    "万能"
+   ],
+   "id": "p05",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "opening",
+   "en": "Nowadays, more and more people are beginning to realize the importance of ...",
+   "zh": "如今，越来越多的人开始意识到……的重要性。",
+   "use": "四级现象/观点开头",
+   "level": "四级",
+   "tags": [
+    "万能"
+   ],
+   "id": "p06",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "opinion",
+   "en": "From my perspective, ... is of considerable significance to ...",
+   "zh": "在我看来，……对……具有重要意义。",
+   "use": "亮明观点；正式议论文",
+   "level": "四六级",
+   "tags": [
+    "观点"
+   ],
+   "id": "p07",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "opinion",
+   "en": "I am firmly convinced that ... rather than ...",
+   "zh": "我坚信……而不是……。",
+   "use": "对比亮观点；六级",
+   "level": "六级",
+   "tags": [
+    "观点"
+   ],
+   "id": "p08",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "opinion",
+   "en": "There is no denying that ..., but it does not necessarily mean that ...",
+   "zh": "不可否认……，但这并不一定意味着……。",
+   "use": "让步后亮观点；避免绝对化",
+   "level": "六级",
+   "tags": [
+    "让步"
+   ],
+   "id": "p09",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "opinion",
+   "en": "As far as I am concerned, the benefits of ... far outweigh its drawbacks.",
+   "zh": "就我而言，……的益处远大于弊端。",
+   "use": "利弊型观点句",
+   "level": "四六级",
+   "tags": [
+    "利弊"
+   ],
+   "id": "p10",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "opinion",
+   "en": "It is high time that we took a rational attitude toward ...",
+   "zh": "是时候我们理性看待……了。",
+   "use": "观点/建议过渡；虚拟语气",
+   "level": "四六级",
+   "tags": [
+    "建议"
+   ],
+   "id": "p11",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "cause",
+   "en": "Several factors may account for this phenomenon.",
+   "zh": "有几个因素可以解释这一现象。",
+   "use": "原因分析段主题句",
+   "level": "四六级",
+   "tags": [
+    "原因"
+   ],
+   "id": "p12",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "cause",
+   "en": "The primary reason for ... lies in the fact that ...",
+   "zh": "……的主要原因是……。",
+   "use": "分析原因；正式",
+   "level": "六级",
+   "tags": [
+    "原因"
+   ],
+   "id": "p13",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "cause",
+   "en": "This phenomenon can be largely attributed to ...",
+   "zh": "这一现象在很大程度上可归因于……。",
+   "use": "六级原因句；替换 result from",
+   "level": "六级",
+   "tags": [
+    "原因"
+   ],
+   "id": "p14",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "cause",
+   "en": "Owing to ..., an increasing number of people ...",
+   "zh": "由于……，越来越多的人……。",
+   "use": "因果+现象；正式",
+   "level": "四六级",
+   "tags": [
+    "原因"
+   ],
+   "id": "p15",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "cause",
+   "en": "It is not merely a matter of ..., but also a consequence of ...",
+   "zh": "这不仅是……的问题，也是……的结果。",
+   "use": "多因分析；六级",
+   "level": "六级",
+   "tags": [
+    "原因"
+   ],
+   "id": "p16",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "effect",
+   "en": "This trend has exerted a profound influence on ...",
+   "zh": "这一趋势对……产生了深远影响。",
+   "use": "影响分析；正式",
+   "level": "四六级",
+   "tags": [
+    "影响"
+   ],
+   "id": "p17",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "effect",
+   "en": "If left unchecked, ... may give rise to a series of problems.",
+   "zh": "如果放任不管，……可能引发一系列问题。",
+   "use": "警示后果；建议前",
+   "level": "四六级",
+   "tags": [
+    "问题"
+   ],
+   "id": "p18",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "effect",
+   "en": "Not only does ... benefit ..., but it also contributes to ...",
+   "zh": "……不仅有益于……，也有助于……。",
+   "use": "双重好处；倒装句",
+   "level": "六级",
+   "tags": [
+    "益处"
+   ],
+   "id": "p19",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "effect",
+   "en": "The negative effects of ... should not be overlooked.",
+   "zh": "……的负面影响不应被忽视。",
+   "use": "弊端分析",
+   "level": "四六级",
+   "tags": [
+    "弊端"
+   ],
+   "id": "p20",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "effect",
+   "en": "... has become an integral part of our daily life.",
+   "zh": "……已成为我们日常生活中不可或缺的一部分。",
+   "use": "科技/文化现象影响",
+   "level": "四级",
+   "tags": [
+    "科技"
+   ],
+   "id": "p21",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "example",
+   "en": "A case in point is ...",
+   "zh": "一个恰当的例子是……。",
+   "use": "举例论证；简洁",
+   "level": "四六级",
+   "tags": [
+    "举例"
+   ],
+   "id": "p22",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "example",
+   "en": "Take ... as an example. It not only ..., but also ...",
+   "zh": "以……为例。它不仅……，而且……。",
+   "use": "举例+递进",
+   "level": "四六级",
+   "tags": [
+    "举例"
+   ],
+   "id": "p23",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "example",
+   "en": "This can be illustrated by the fact that ...",
+   "zh": "这一点可以由……的事实说明。",
+   "use": "六级举例；正式",
+   "level": "六级",
+   "tags": [
+    "举例"
+   ],
+   "id": "p24",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "example",
+   "en": "For instance, ... has become increasingly popular among ...",
+   "zh": "例如，……在……中越来越受欢迎。",
+   "use": "社会现象举例",
+   "level": "四级",
+   "tags": [
+    "举例"
+   ],
+   "id": "p25",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "example",
+   "en": "A typical example is ..., which demonstrates that ...",
+   "zh": "一个典型例子是……，它表明……。",
+   "use": "举例+点题；定语从句",
+   "level": "六级",
+   "tags": [
+    "举例"
+   ],
+   "id": "p26",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "contrast",
+   "en": "On the one hand, ...; on the other hand, ...",
+   "zh": "一方面……；另一方面……。",
+   "use": "利弊/对比分析",
+   "level": "四六级",
+   "tags": [
+    "对比"
+   ],
+   "id": "p27",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "contrast",
+   "en": "By contrast, ...",
+   "zh": "相比之下，……。",
+   "use": "数据/观点对比",
+   "level": "四六级",
+   "tags": [
+    "对比"
+   ],
+   "id": "p28",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "contrast",
+   "en": "While ... brings convenience, it also creates ...",
+   "zh": "虽然……带来便利，但也造成……。",
+   "use": "科技利弊；让步",
+   "level": "四六级",
+   "tags": [
+    "科技"
+   ],
+   "id": "p29",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "contrast",
+   "en": "Admittedly, ...; nevertheless, ...",
+   "zh": "诚然……；然而……。",
+   "use": "六级让步转折；高分句式",
+   "level": "六级",
+   "tags": [
+    "让步"
+   ],
+   "id": "p30",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "contrast",
+   "en": "It is not that ...; rather, ...",
+   "zh": "并不是……，而是……。",
+   "use": "纠正误解；六级",
+   "level": "六级",
+   "tags": [
+    "观点"
+   ],
+   "id": "p31",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "suggestion",
+   "en": "It is high time that we took effective measures to ...",
+   "zh": "是时候我们采取有效措施……了。",
+   "use": "建议段主题句；虚拟语气",
+   "level": "四六级",
+   "tags": [
+    "建议"
+   ],
+   "id": "p32",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "suggestion",
+   "en": "The government should give priority to ...",
+   "zh": "政府应优先考虑……。",
+   "use": "政策建议；正式",
+   "level": "四六级",
+   "tags": [
+    "建议"
+   ],
+   "id": "p33",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "suggestion",
+   "en": "Schools and parents should work together to ...",
+   "zh": "学校和家长应共同努力……。",
+   "use": "教育话题建议",
+   "level": "四级",
+   "tags": [
+    "教育"
+   ],
+   "id": "p34",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "suggestion",
+   "en": "Only in this way can we ...",
+   "zh": "只有这样我们才能……。",
+   "use": "建议/结论倒装句",
+   "level": "四六级",
+   "tags": [
+    "建议"
+   ],
+   "id": "p35",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "suggestion",
+   "en": "It is advisable for individuals to ...",
+   "zh": "个人最好……。",
+   "use": "个人措施；正式",
+   "level": "六级",
+   "tags": [
+    "建议"
+   ],
+   "id": "p36",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "conclusion",
+   "en": "Taking all factors into consideration, ...",
+   "zh": "综合考虑所有因素，……。",
+   "use": "结论段开头",
+   "level": "四六级",
+   "tags": [
+    "结论"
+   ],
+   "id": "p37",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "conclusion",
+   "en": "In conclusion, ... is both necessary and rewarding.",
+   "zh": "总之，……既必要又有益。",
+   "use": "结论+评价",
+   "level": "四六级",
+   "tags": [
+    "结论"
+   ],
+   "id": "p38",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "conclusion",
+   "en": "Only by ... can we embrace a more promising future.",
+   "zh": "只有……，我们才能迎来更有希望的未来。",
+   "use": "升华结尾；倒装",
+   "level": "六级",
+   "tags": [
+    "结论"
+   ],
+   "id": "p39",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "conclusion",
+   "en": "It is not an easy task, but it is well worth the effort.",
+   "zh": "这并非易事，但值得付出。",
+   "use": "建议/呼吁式结尾",
+   "level": "四六级",
+   "tags": [
+    "结论"
+   ],
+   "id": "p40",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "conclusion",
+   "en": "The significance of ... can hardly be overstated.",
+   "zh": "……的重要性怎么强调都不为过。",
+   "use": "高级结论句",
+   "level": "六级",
+   "tags": [
+    "结论"
+   ],
+   "id": "p41",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "chart",
+   "en": "As is clearly shown in the chart, ...",
+   "zh": "如图表清楚所示，……。",
+   "use": "图表作文开头",
+   "level": "四六级",
+   "tags": [
+    "图表"
+   ],
+   "id": "p42",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "chart",
+   "en": "The number of ... increased from ... to ... during the period.",
+   "zh": "在此期间，……的数量从……增加到……。",
+   "use": "描述数据变化",
+   "level": "四六级",
+   "tags": [
+    "图表"
+   ],
+   "id": "p43",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "chart",
+   "en": "There was a sharp rise in ... between ... and ...",
+   "zh": "在……到……之间，……急剧上升。",
+   "use": "趋势描述；正式",
+   "level": "六级",
+   "tags": [
+    "图表"
+   ],
+   "id": "p44",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "chart",
+   "en": "Several factors may explain this striking difference.",
+   "zh": "有几个因素可以解释这一显著差异。",
+   "use": "图表原因分析",
+   "level": "六级",
+   "tags": [
+    "图表"
+   ],
+   "id": "p45",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "chart",
+   "en": "The figures indicate that ... is gaining increasing popularity.",
+   "zh": "数据表明……正越来越受欢迎。",
+   "use": "图表结论",
+   "level": "四六级",
+   "tags": [
+    "图表"
+   ],
+   "id": "p46",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "letter",
+   "en": "I am writing to apply for ...",
+   "zh": "我写信是为了申请……。",
+   "use": "申请信开头",
+   "level": "四级",
+   "tags": [
+    "书信"
+   ],
+   "id": "p47",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "letter",
+   "en": "I am writing to express my sincere gratitude for ...",
+   "zh": "我写信是为了对……表达诚挚感谢。",
+   "use": "感谢信开头",
+   "level": "四级",
+   "tags": [
+    "书信"
+   ],
+   "id": "p48",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "letter",
+   "en": "I would appreciate it if you could ...",
+   "zh": "如果您能……，我将不胜感激。",
+   "use": "请求/建议；礼貌正式",
+   "level": "四六级",
+   "tags": [
+    "书信"
+   ],
+   "id": "p49",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "letter",
+   "en": "Please feel free to contact me if you need further information.",
+   "zh": "如需进一步信息，请随时联系我。",
+   "use": "书信结尾",
+   "level": "四级",
+   "tags": [
+    "书信"
+   ],
+   "id": "p50",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "letter",
+   "en": "I am looking forward to your early reply.",
+   "zh": "期待您的早日回复。",
+   "use": "书信结尾",
+   "level": "四级",
+   "tags": [
+    "书信"
+   ],
+   "id": "p51",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "translation",
+   "en": "... has a long history and is an integral part of Chinese culture.",
+   "zh": "……历史悠久，是中国文化不可或缺的一部分。",
+   "use": "文化翻译/介绍",
+   "level": "四六级",
+   "tags": [
+    "文化"
+   ],
+   "id": "p52",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "translation",
+   "en": "... is not only a symbol of ..., but also a reflection of ...",
+   "zh": "……不仅是……的象征，也是……的体现。",
+   "use": "文化内涵；正式",
+   "level": "六级",
+   "tags": [
+    "文化"
+   ],
+   "id": "p53",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "translation",
+   "en": "With the development of ..., ... has become increasingly popular.",
+   "zh": "随着……的发展，……越来越受欢迎。",
+   "use": "社会现象翻译",
+   "level": "四六级",
+   "tags": [
+    "社会"
+   ],
+   "id": "p54",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "translation",
+   "en": "It is our responsibility to preserve and promote ...",
+   "zh": "保护和弘扬……是我们的责任。",
+   "use": "文化传承/呼吁",
+   "level": "四六级",
+   "tags": [
+    "文化"
+   ],
+   "id": "p55",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "translation",
+   "en": "... plays an important role in promoting cultural exchange.",
+   "zh": "……在促进文化交流方面发挥重要作用。",
+   "use": "文化交流翻译",
+   "level": "六级",
+   "tags": [
+    "文化"
+   ],
+   "id": "p56",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "universal",
+   "en": "There is no doubt that ... is of great importance to ...",
+   "zh": "毫无疑问，……对……非常重要。",
+   "use": "万能主体句",
+   "level": "四六级",
+   "tags": [
+    "万能"
+   ],
+   "id": "p57",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "universal",
+   "en": "It is widely believed that ..., but I would argue that ...",
+   "zh": "人们普遍认为……，但我认为……。",
+   "use": "引出争议+观点",
+   "level": "六级",
+   "tags": [
+    "万能"
+   ],
+   "id": "p58",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "universal",
+   "en": "What matters most is not ..., but ...",
+   "zh": "最重要的不是……，而是……。",
+   "use": "升华观点；六级",
+   "level": "六级",
+   "tags": [
+    "万能"
+   ],
+   "id": "p59",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "universal",
+   "en": "We should bear in mind that ...",
+   "zh": "我们应牢记……。",
+   "use": "呼吁/结尾",
+   "level": "四六级",
+   "tags": [
+    "万能"
+   ],
+   "id": "p60",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "universal",
+   "en": "Only when ... can we truly ...",
+   "zh": "只有当……时，我们才能真正……。",
+   "use": "高级倒装结尾",
+   "level": "六级",
+   "tags": [
+    "万能"
+   ],
+   "id": "p61",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "opening",
+   "en": "With the growing popularity of ..., an increasing number of people ...",
+   "zh": "随着……日益普及，越来越多的人……",
+   "use": "现象开头",
+   "level": "四六级",
+   "tags": [
+    "开头",
+    "现象"
+   ],
+   "id": "p62",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "opening",
+   "en": "In contemporary society, ... has become a subject of heated debate.",
+   "zh": "在当代社会，……已成为热议话题。",
+   "use": "议论文开头",
+   "level": "四六级",
+   "tags": [
+    "开头",
+    "争议"
+   ],
+   "id": "p63",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "opening",
+   "en": "When it comes to ..., people's views vary from person to person.",
+   "zh": "谈到……，人们看法不一。",
+   "use": "观点引入",
+   "level": "四六级",
+   "tags": [
+    "开头",
+    "观点"
+   ],
+   "id": "p64",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "opening",
+   "en": "There is a growing awareness that ...",
+   "zh": "人们越来越意识到……。",
+   "use": "认知开头",
+   "level": "六级",
+   "tags": [
+    "开头",
+    "认知"
+   ],
+   "id": "p65",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "opening",
+   "en": "Recently, the issue of ... has aroused wide public concern.",
+   "zh": "近来，……问题引起广泛关注。",
+   "use": "新闻式开头",
+   "level": "四六级",
+   "tags": [
+    "开头",
+    "热点"
+   ],
+   "id": "p66",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "opening",
+   "en": "Against the backdrop of ..., ... is worth our attention.",
+   "zh": "在……背景下，……值得我们关注。",
+   "use": "背景开头",
+   "level": "六级",
+   "tags": [
+    "开头",
+    "背景"
+   ],
+   "id": "p67",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "opening",
+   "en": "It is universally acknowledged that ...",
+   "zh": "众所周知，……。",
+   "use": "稳妥开头",
+   "level": "四级",
+   "tags": [
+    "开头",
+    "共识"
+   ],
+   "id": "p68",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "opening",
+   "en": "As is vividly depicted in the chart, ...",
+   "zh": "正如图表生动显示的，……。",
+   "use": "图表开头",
+   "level": "四六级",
+   "tags": [
+    "开头",
+    "图表"
+   ],
+   "id": "p69",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "opinion",
+   "en": "From my perspective, ...",
+   "zh": "在我看来，……。",
+   "use": "观点表达",
+   "level": "四六级",
+   "tags": [
+    "观点"
+   ],
+   "id": "p70",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "opinion",
+   "en": "As far as I am concerned, ...",
+   "zh": "就我而言，……。",
+   "use": "观点表达",
+   "level": "四级",
+   "tags": [
+    "观点"
+   ],
+   "id": "p71",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "opinion",
+   "en": "I am firmly convinced that ...",
+   "zh": "我坚信……。",
+   "use": "强观点",
+   "level": "六级",
+   "tags": [
+    "观点",
+    "强调"
+   ],
+   "id": "p72",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "opinion",
+   "en": "Personally, I hold the view that ...",
+   "zh": "我个人认为……。",
+   "use": "观点表达",
+   "level": "四六级",
+   "tags": [
+    "观点"
+   ],
+   "id": "p73",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "opinion",
+   "en": "There is no denying that ...",
+   "zh": "不可否认，……。",
+   "use": "让步式观点",
+   "level": "六级",
+   "tags": [
+    "观点",
+    "让步"
+   ],
+   "id": "p74",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "opinion",
+   "en": "To my mind, ... rather than ...",
+   "zh": "在我看来，是……而不是……。",
+   "use": "对比观点",
+   "level": "四六级",
+   "tags": [
+    "观点",
+    "对比"
+   ],
+   "id": "p75",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "opinion",
+   "en": "I tend to agree that ...",
+   "zh": "我倾向于同意……。",
+   "use": "温和观点",
+   "level": "四级",
+   "tags": [
+    "观点"
+   ],
+   "id": "p76",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "cause",
+   "en": "Several factors contribute to ...",
+   "zh": "若干因素导致了……。",
+   "use": "原因分析",
+   "level": "四六级",
+   "tags": [
+    "原因"
+   ],
+   "id": "p77",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "cause",
+   "en": "The main reason for ... lies in ...",
+   "zh": "……的主要原因在于……。",
+   "use": "原因分析",
+   "level": "四六级",
+   "tags": [
+    "原因"
+   ],
+   "id": "p78",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "cause",
+   "en": "... can be attributed to ...",
+   "zh": "……可归因于……。",
+   "use": "原因分析",
+   "level": "六级",
+   "tags": [
+    "原因",
+    "高级"
+   ],
+   "id": "p79",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "cause",
+   "en": "One of the primary causes is that ...",
+   "zh": "首要原因之一是……。",
+   "use": "原因分析",
+   "level": "四六级",
+   "tags": [
+    "原因"
+   ],
+   "id": "p80",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "cause",
+   "en": "This phenomenon stems from ...",
+   "zh": "这一现象源于……。",
+   "use": "原因分析",
+   "level": "六级",
+   "tags": [
+    "原因",
+    "高级"
+   ],
+   "id": "p81",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "cause",
+   "en": "A combination of ... and ... leads to ...",
+   "zh": "……与……共同导致了……。",
+   "use": "多因分析",
+   "level": "六级",
+   "tags": [
+    "原因",
+    "组合"
+   ],
+   "id": "p82",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "cause",
+   "en": "Behind ... lies a deeper cause: ...",
+   "zh": "……背后有更深层的原因：……。",
+   "use": "深层原因",
+   "level": "六级",
+   "tags": [
+    "原因",
+    "高级"
+   ],
+   "id": "p83",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "effect",
+   "en": "As a consequence, ...",
+   "zh": "其结果是……。",
+   "use": "结果表达",
+   "level": "四六级",
+   "tags": [
+    "结果"
+   ],
+   "id": "p84",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "effect",
+   "en": "... will have a profound impact on ...",
+   "zh": "……将对……产生深远影响。",
+   "use": "影响分析",
+   "level": "六级",
+   "tags": [
+    "结果",
+    "影响"
+   ],
+   "id": "p85",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "effect",
+   "en": "This trend may give rise to ...",
+   "zh": "这一趋势可能引发……。",
+   "use": "结果分析",
+   "level": "六级",
+   "tags": [
+    "结果"
+   ],
+   "id": "p86",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "effect",
+   "en": "... is likely to bring about ...",
+   "zh": "……很可能带来……。",
+   "use": "结果预测",
+   "level": "四六级",
+   "tags": [
+    "结果"
+   ],
+   "id": "p87",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "effect",
+   "en": "The benefits of ... far outweigh its drawbacks.",
+   "zh": "……的好处远大于弊端。",
+   "use": "利弊分析",
+   "level": "四六级",
+   "tags": [
+    "结果",
+    "利弊"
+   ],
+   "id": "p88",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "effect",
+   "en": "... exerts a negative influence on ...",
+   "zh": "……对……产生负面影响。",
+   "use": "负面影响",
+   "level": "四六级",
+   "tags": [
+    "结果",
+    "负面"
+   ],
+   "id": "p89",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "effect",
+   "en": "In the long run, ... will prove beneficial to ...",
+   "zh": "从长远看，……将对……有益。",
+   "use": "长期影响",
+   "level": "六级",
+   "tags": [
+    "结果",
+    "长期"
+   ],
+   "id": "p90",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "example",
+   "en": "Take ... as an example.",
+   "zh": "以……为例。",
+   "use": "举例论证",
+   "level": "四级",
+   "tags": [
+    "举例"
+   ],
+   "id": "p91",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "example",
+   "en": "... serves as a typical example.",
+   "zh": "……是一个典型例子。",
+   "use": "举例论证",
+   "level": "四六级",
+   "tags": [
+    "举例"
+   ],
+   "id": "p92",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "example",
+   "en": "This can be illustrated by ...",
+   "zh": "这可以用……来说明。",
+   "use": "举例论证",
+   "level": "六级",
+   "tags": [
+    "举例",
+    "说明"
+   ],
+   "id": "p93",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "example",
+   "en": "For instance, ...",
+   "zh": "例如，……。",
+   "use": "简单举例",
+   "level": "四级",
+   "tags": [
+    "举例"
+   ],
+   "id": "p94",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "example",
+   "en": "A convincing example is that ...",
+   "zh": "一个有说服力的例子是……。",
+   "use": "举例论证",
+   "level": "六级",
+   "tags": [
+    "举例"
+   ],
+   "id": "p95",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "example",
+   "en": "Consider ..., for example.",
+   "zh": "以……为例。",
+   "use": "举例论证",
+   "level": "四六级",
+   "tags": [
+    "举例"
+   ],
+   "id": "p96",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "contrast",
+   "en": "While ..., ...",
+   "zh": "虽然……，但……。",
+   "use": "让步对比",
+   "level": "四六级",
+   "tags": [
+    "对比",
+    "让步"
+   ],
+   "id": "p97",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "contrast",
+   "en": "Compared with ..., ...",
+   "zh": "与……相比，……。",
+   "use": "比较",
+   "level": "四六级",
+   "tags": [
+    "对比"
+   ],
+   "id": "p98",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "contrast",
+   "en": "Despite ..., ...",
+   "zh": "尽管……，……。",
+   "use": "让步",
+   "level": "六级",
+   "tags": [
+    "对比",
+    "让步"
+   ],
+   "id": "p99",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "contrast",
+   "en": "However, ...",
+   "zh": "然而，……。",
+   "use": "转折",
+   "level": "四级",
+   "tags": [
+    "对比",
+    "转折"
+   ],
+   "id": "p100",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "contrast",
+   "en": "In contrast, ...",
+   "zh": "相比之下，……。",
+   "use": "对比",
+   "level": "四六级",
+   "tags": [
+    "对比"
+   ],
+   "id": "p101",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "contrast",
+   "en": "Although ..., it is still ...",
+   "zh": "虽然……，但仍然……。",
+   "use": "让步对比",
+   "level": "四六级",
+   "tags": [
+    "对比",
+    "让步"
+   ],
+   "id": "p102",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "suggestion",
+   "en": "We should spare no effort to ...",
+   "zh": "我们应不遗余力地……。",
+   "use": "建议措施",
+   "level": "六级",
+   "tags": [
+    "建议",
+    "高级"
+   ],
+   "id": "p103",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "suggestion",
+   "en": "The government ought to ...",
+   "zh": "政府应当……。",
+   "use": "建议措施",
+   "level": "四六级",
+   "tags": [
+    "建议"
+   ],
+   "id": "p104",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "suggestion",
+   "en": "Only by ... can we ...",
+   "zh": "只有通过……，我们才能……。",
+   "use": "倒装建议",
+   "level": "六级",
+   "tags": [
+    "建议",
+    "倒装"
+   ],
+   "id": "p105",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "suggestion",
+   "en": "It is advisable for ... to ...",
+   "zh": "……做……是可取的。",
+   "use": "建议措施",
+   "level": "六级",
+   "tags": [
+    "建议"
+   ],
+   "id": "p106",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "suggestion",
+   "en": "Steps should be taken to ...",
+   "zh": "应采取措施……。",
+   "use": "建议措施",
+   "level": "四六级",
+   "tags": [
+    "建议"
+   ],
+   "id": "p107",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "suggestion",
+   "en": "Both individuals and society should ...",
+   "zh": "个人和社会都应……。",
+   "use": "建议措施",
+   "level": "四六级",
+   "tags": [
+    "建议"
+   ],
+   "id": "p108",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "conclusion",
+   "en": "In conclusion, ...",
+   "zh": "总之，……。",
+   "use": "结尾总结",
+   "level": "四六级",
+   "tags": [
+    "结论"
+   ],
+   "id": "p109",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "conclusion",
+   "en": "To sum up, ...",
+   "zh": "总而言之，……。",
+   "use": "结尾总结",
+   "level": "四级",
+   "tags": [
+    "结论"
+   ],
+   "id": "p110",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "conclusion",
+   "en": "All in all, ...",
+   "zh": "总的来说，……。",
+   "use": "结尾总结",
+   "level": "四级",
+   "tags": [
+    "结论"
+   ],
+   "id": "p111",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "conclusion",
+   "en": "Taking all these factors into consideration, ...",
+   "zh": "综合考虑这些因素，……。",
+   "use": "总结",
+   "level": "六级",
+   "tags": [
+    "结论"
+   ],
+   "id": "p112",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "conclusion",
+   "en": "Therefore, it is safe to conclude that ...",
+   "zh": "因此，可以有把握地得出结论：……。",
+   "use": "总结",
+   "level": "六级",
+   "tags": [
+    "结论"
+   ],
+   "id": "p113",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "conclusion",
+   "en": "It is hoped that ...",
+   "zh": "希望……。",
+   "use": "呼吁结尾",
+   "level": "四六级",
+   "tags": [
+    "结论"
+   ],
+   "id": "p114",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "chart",
+   "en": "As is shown in the chart, ...",
+   "zh": "如图所示，……。",
+   "use": "图表描述",
+   "level": "四六级",
+   "tags": [
+    "图表"
+   ],
+   "id": "p115",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "chart",
+   "en": "The figures reveal that ...",
+   "zh": "数据显示……。",
+   "use": "图表描述",
+   "level": "四六级",
+   "tags": [
+    "图表"
+   ],
+   "id": "p116",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "chart",
+   "en": "... accounted for the largest proportion.",
+   "zh": "……占比最大。",
+   "use": "图表描述",
+   "level": "四六级",
+   "tags": [
+    "图表"
+   ],
+   "id": "p117",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "chart",
+   "en": "There was a marked increase in ...",
+   "zh": "……显著增长。",
+   "use": "趋势描述",
+   "level": "四六级",
+   "tags": [
+    "图表",
+    "趋势"
+   ],
+   "id": "p118",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "chart",
+   "en": "Compared with ..., ... rose by ...",
+   "zh": "与……相比，……上升了……。",
+   "use": "数据对比",
+   "level": "六级",
+   "tags": [
+    "图表",
+    "对比"
+   ],
+   "id": "p119",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "chart",
+   "en": "The percentage of ... remained stable.",
+   "zh": "……的比例保持稳定。",
+   "use": "图表描述",
+   "level": "四六级",
+   "tags": [
+    "图表"
+   ],
+   "id": "p120",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "chart",
+   "en": "The chart indicates a growing trend of ...",
+   "zh": "图表显示……呈增长趋势。",
+   "use": "趋势总结",
+   "level": "六级",
+   "tags": [
+    "图表",
+    "趋势"
+   ],
+   "id": "p121",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "letter",
+   "en": "I am writing to express my ...",
+   "zh": "我写信表达我的……。",
+   "use": "书信开头",
+   "level": "四六级",
+   "tags": [
+    "书信"
+   ],
+   "id": "p122",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "letter",
+   "en": "I would like to apply for ...",
+   "zh": "我想申请……。",
+   "use": "申请信",
+   "level": "四六级",
+   "tags": [
+    "书信"
+   ],
+   "id": "p123",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "letter",
+   "en": "I am writing to complain about ...",
+   "zh": "我写信投诉……。",
+   "use": "投诉信",
+   "level": "四六级",
+   "tags": [
+    "书信"
+   ],
+   "id": "p124",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "letter",
+   "en": "Please allow me to introduce ...",
+   "zh": "请允许我介绍……。",
+   "use": "介绍",
+   "level": "四六级",
+   "tags": [
+    "书信"
+   ],
+   "id": "p125",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "letter",
+   "en": "I look forward to your reply.",
+   "zh": "期待您的回复。",
+   "use": "书信结尾",
+   "level": "四级",
+   "tags": [
+    "书信"
+   ],
+   "id": "p126",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "letter",
+   "en": "Thank you for your time and consideration.",
+   "zh": "感谢您的时间与考虑。",
+   "use": "书信结尾",
+   "level": "六级",
+   "tags": [
+    "书信"
+   ],
+   "id": "p127",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "translation",
+   "en": "... is regarded as ...",
+   "zh": "……被视为……。",
+   "use": "翻译表达",
+   "level": "四六级",
+   "tags": [
+    "翻译"
+   ],
+   "id": "p128",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "translation",
+   "en": "... plays an increasingly important role in ...",
+   "zh": "……在……中发挥越来越重要的作用。",
+   "use": "翻译表达",
+   "level": "四六级",
+   "tags": [
+    "翻译"
+   ],
+   "id": "p129",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "translation",
+   "en": "With a history of ..., ... is famous for ...",
+   "zh": "……有……的历史，以……闻名。",
+   "use": "文化翻译",
+   "level": "六级",
+   "tags": [
+    "翻译",
+    "文化"
+   ],
+   "id": "p130",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "translation",
+   "en": "... not only ... but also ...",
+   "zh": "……不仅……而且……。",
+   "use": "翻译表达",
+   "level": "四六级",
+   "tags": [
+    "翻译"
+   ],
+   "id": "p131",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "translation",
+   "en": "It is ... that ...",
+   "zh": "正是……才……。",
+   "use": "强调句",
+   "level": "六级",
+   "tags": [
+    "翻译",
+    "强调"
+   ],
+   "id": "p132",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "translation",
+   "en": "... has become a symbol of ...",
+   "zh": "……已成为……的象征。",
+   "use": "文化翻译",
+   "level": "六级",
+   "tags": [
+    "翻译",
+    "文化"
+   ],
+   "id": "p133",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "universal",
+   "en": "Not only ... but also ...",
+   "zh": "不仅……而且……。",
+   "use": "万能递进",
+   "level": "四六级",
+   "tags": [
+    "万能",
+    "递进"
+   ],
+   "id": "p134",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "universal",
+   "en": "It is ... that ...",
+   "zh": "正是……才……。",
+   "use": "万能强调",
+   "level": "六级",
+   "tags": [
+    "万能",
+    "强调"
+   ],
+   "id": "p135",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "universal",
+   "en": "The more ..., the more ...",
+   "zh": "越……，越……。",
+   "use": "万能比较",
+   "level": "四六级",
+   "tags": [
+    "万能",
+    "比较"
+   ],
+   "id": "p136",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "universal",
+   "en": "Only when ... can ...",
+   "zh": "只有当……，才能……。",
+   "use": "万能倒装",
+   "level": "六级",
+   "tags": [
+    "万能",
+    "倒装"
+   ],
+   "id": "p137",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "universal",
+   "en": "There is no doubt that ...",
+   "zh": "毫无疑问，……。",
+   "use": "万能观点",
+   "level": "四六级",
+   "tags": [
+    "万能",
+    "观点"
+   ],
+   "id": "p138",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "opening",
+   "en": "It is not uncommon to see that ...",
+   "zh": "……并不罕见。",
+   "use": "现象开头",
+   "level": "四六级",
+   "tags": [
+    "开头",
+    "现象"
+   ],
+   "id": "p139",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "opening",
+   "en": "In recent years, there has been a growing tendency to ...",
+   "zh": "近年来，……的趋势日益明显。",
+   "use": "趋势开头",
+   "level": "六级",
+   "tags": [
+    "开头",
+    "趋势"
+   ],
+   "id": "p140",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "opinion",
+   "en": "What matters most is ...",
+   "zh": "最重要的是……。",
+   "use": "观点强调",
+   "level": "六级",
+   "tags": [
+    "观点",
+    "强调"
+   ],
+   "id": "p141",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "contrast",
+   "en": "This is not to say that ..., but that ...",
+   "zh": "这并不是说……，而是说……。",
+   "use": "让步对比",
+   "level": "六级",
+   "tags": [
+    "对比",
+    "让步"
+   ],
+   "id": "p142",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "suggestion",
+   "en": "It is essential that ...",
+   "zh": "……是必不可少的。",
+   "use": "建议措施",
+   "level": "六级",
+   "tags": [
+    "建议"
+   ],
+   "id": "p143",
+   "source": "四六级高分作文常用句式整理"
+  },
+  {
+   "cat": "conclusion",
+   "en": "In a word, ...",
+   "zh": "总之，……。",
+   "use": "结尾总结",
+   "level": "四六级",
+   "tags": [
+    "结论"
+   ],
+   "id": "p144",
+   "source": "四六级高分作文常用句式整理"
+  }
+ ],
+ "templates": [
+  {
+   "name": "现象分析型",
+   "level": "四级",
+   "use": "社会现象、校园生活、科技影响",
+   "structure": [
+    "描述现象",
+    "分析原因",
+    "提出建议/展望"
+   ],
+   "paragraphs": [
+    [
+     "In recent years, ... has become increasingly common among ...",
+     "This phenomenon has aroused widespread concern."
+    ],
+    [
+     "Several factors may account for this trend. To begin with, ...",
+     "In addition, ...",
+     "More importantly, ..."
+    ],
+    [
+     "It is high time that we took effective measures to ...",
+     "Only in this way can we ..."
+    ]
+   ],
+   "zh": "首段描述现象，主体分析两到三个原因，结尾提出建议或展望。",
+   "tips": [
+    "现象要具体，避免空泛",
+    "原因按由表及里排序",
+    "结尾用建议/呼吁收束"
+   ],
+   "source": "四六级高分作文结构模板（原创整理）",
+   "id": "t01"
+  },
+  {
+   "name": "观点论证型",
+   "level": "四六级",
+   "use": "观点选择、重要性、应该/不应该",
+   "structure": [
+    "亮明观点",
+    "两到三点论证",
+    "总结升华"
+   ],
+   "paragraphs": [
+    [
+     "From my perspective, ... is of considerable significance.",
+     "There are several reasons why I hold this view."
+    ],
+    [
+     "To begin with, ...",
+     "Moreover, ...",
+     "Above all, ..."
+    ],
+    [
+     "Taking all factors into consideration, ...",
+     "Only by ... can we ..."
+    ]
+   ],
+   "zh": "首段明确立场，主体用“首先—此外—最重要的是”展开，结尾重申并升华。",
+   "tips": [
+    "立场要清晰",
+    "每段一个中心",
+    "避免只罗列不解释"
+   ],
+   "source": "四六级高分作文结构模板（原创整理）",
+   "id": "t02"
+  },
+  {
+   "name": "利弊分析型",
+   "level": "四六级",
+   "use": "科技产品、社会现象、政策",
+   "structure": [
+    "引出话题",
+    "分析利与弊",
+    "给出平衡结论"
+   ],
+   "paragraphs": [
+    [
+     "... has become an integral part of our daily life.",
+     "Like a double-edged sword, it brings both benefits and problems."
+    ],
+    [
+     "On the one hand, ...",
+     "On the other hand, ..."
+    ],
+    [
+     "In conclusion, ...",
+     "We should make the best use of ... while ..."
+    ]
+   ],
+   "zh": "先承认双面性，再分述利弊，最后给出平衡态度。",
+   "tips": [
+    "避免只写一面",
+    "利弊各给一个具体例子",
+    "结论不要绝对化"
+   ],
+   "source": "四六级高分作文结构模板（原创整理）",
+   "id": "t03"
+  },
+  {
+   "name": "图表描述型",
+   "level": "四六级",
+   "use": "柱状图、折线图、饼图",
+   "structure": [
+    "描述数据",
+    "解释原因",
+    "总结趋势"
+   ],
+   "paragraphs": [
+    [
+     "As is clearly shown in the chart, ...",
+     "The number of ... rose sharply from ... to ..."
+    ],
+    [
+     "Several factors may explain this striking change.",
+     "First, ...",
+     "Second, ..."
+    ],
+    [
+     "In conclusion, the figures indicate that ..."
+    ]
+   ],
+   "zh": "首段客观描述数据，主体解释原因，结尾概括趋势。",
+   "tips": [
+    "不要逐条念数据",
+    "突出最大变化",
+    "原因要与数据呼应"
+   ],
+   "source": "四六级高分作文结构模板（原创整理）",
+   "id": "t04"
+  },
+  {
+   "name": "问题解决型",
+   "level": "四六级",
+   "use": "环保、健康、教育问题",
+   "structure": [
+    "提出问题",
+    "分析影响/原因",
+    "提出解决方案"
+   ],
+   "paragraphs": [
+    [
+     "In recent years, ... has become a serious problem.",
+     "If left unchecked, it may give rise to ..."
+    ],
+    [
+     "The causes of this problem are complex. ...",
+     "It has exerted a negative influence on ..."
+    ],
+    [
+     "Effective measures should be taken to ...",
+     "Only through joint efforts can we ..."
+    ]
+   ],
+   "zh": "问题—影响—措施三段式，措施要具体到政府/学校/个人。",
+   "tips": [
+    "问题要具体",
+    "措施分主体",
+    "结尾呼吁合作"
+   ],
+   "source": "四六级高分作文结构模板（原创整理）",
+   "id": "t05"
+  },
+  {
+   "name": "书信建议型",
+   "level": "四级",
+   "use": "建议信、申请信、感谢信",
+   "structure": [
+    "写信目的",
+    "具体内容/建议",
+    "期待回复"
+   ],
+   "paragraphs": [
+    [
+     "I am writing to ...",
+     "I would like to ..."
+    ],
+    [
+     "First, ...",
+     "In addition, ...",
+     "I would appreciate it if you could ..."
+    ],
+    [
+     "Thank you for your time and consideration.",
+     "I am looking forward to your early reply."
+    ]
+   ],
+   "zh": "应用文要礼貌、直接、目的明确，结尾表达感谢与期待。",
+   "tips": [
+    "开头点明目的",
+    "建议具体可行",
+    "注意称呼与落款"
+   ],
+   "source": "四六级高分作文结构模板（原创整理）",
+   "id": "t06"
+  },
+  {
+   "name": "对比选择型",
+   "level": "六级",
+   "use": "两种观点、两种做法、利弊权衡",
+   "structure": [
+    "引出争议",
+    "对比双方",
+    "做出选择"
+   ],
+   "paragraphs": [
+    [
+     "When it comes to ..., opinions vary from person to person.",
+     "Some people believe that ..., while others argue that ..."
+    ],
+    [
+     "Those who support ... point out that ...",
+     "By contrast, ..."
+    ],
+    [
+     "As far as I am concerned, ...",
+     "The benefits far outweigh ..."
+    ]
+   ],
+   "zh": "先呈现双方观点，再通过对比做出有理由的选择。",
+   "tips": [
+    "不要只说一方",
+    "对比要有维度",
+    "选择要给出理由"
+   ],
+   "source": "四六级高分作文结构模板（原创整理）",
+   "id": "t07"
+  },
+  {
+   "name": "六级进阶议论型",
+   "level": "六级",
+   "use": "抽象话题、社会热点、价值观",
+   "structure": [
+    "现象/争议引入",
+    "深层分析",
+    "辩证结论"
+   ],
+   "paragraphs": [
+    [
+     "Against the backdrop of ..., the issue of ... has aroused widespread concern.",
+     "It is widely believed that ..., but this view deserves reconsideration."
+    ],
+    [
+     "Admittedly, ...",
+     "Nevertheless, ...",
+     "What matters most is ..."
+    ],
+    [
+     "Taking all factors into consideration, ...",
+     "The significance of ... can hardly be overstated."
+    ]
+   ],
+   "zh": "使用让步、对比和倒装提升句式，注意逻辑衔接而非堆砌大词。",
+   "tips": [
+    "先让步再转折",
+    "每段有主题句",
+    "结尾避免空喊口号"
+   ],
+   "source": "四六级高分作文结构模板（原创整理）",
+   "id": "t08"
+  }
+ ],
+ "frames": [
+  {
+   "id": "f1",
+   "en": "There is no doubt that ...",
+   "zh": "毫无疑问，……",
+   "use": "陈述句强调；正式写作",
+   "level": "四级"
+  },
+  {
+   "id": "f2",
+   "en": "It is widely acknowledged that ...",
+   "zh": "人们普遍承认，……",
+   "use": "普遍观点/事实；正式",
+   "level": "四六级"
+  },
+  {
+   "id": "f3",
+   "en": "It is not an exaggeration to say that ...",
+   "zh": "毫不夸张地说，……",
+   "use": "强调重要性；六级",
+   "level": "六级"
+  },
+  {
+   "id": "f4",
+   "en": "What deserves particular attention is that ...",
+   "zh": "尤其值得注意的是，……",
+   "use": "强调重点；六级",
+   "level": "六级"
+  },
+  {
+   "id": "f5",
+   "en": "There is a growing awareness that ...",
+   "zh": "人们越来越意识到，……",
+   "use": "社会现象/环保话题",
+   "level": "四六级"
+  },
+  {
+   "id": "f6",
+   "en": "What matters most is that ...",
+   "zh": "最重要的是，……",
+   "use": "结论/观点收束",
+   "level": "四六级"
+  },
+  {
+   "id": "f7",
+   "en": "It is universally recognized that ...",
+   "zh": "人们普遍认识到，……",
+   "use": "普遍事实；正式",
+   "level": "四六级"
+  },
+  {
+   "id": "f8",
+   "en": "Another point worth noting is that ...",
+   "zh": "另一点值得注意的是，……",
+   "use": "递进论证；六级",
+   "level": "六级"
+  }
+ ]
+}

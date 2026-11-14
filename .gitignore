@@ -1,0 +1,32 @@
+﻿# ---- 构建产物与本地工具 ----
+dist/
+build/
+tmp/
+ui-test/
+build-tools/
+node_modules/
+.android-home/
+
+# ---- 签名与密钥 ----
+*.keystore
+*.jks
+*.env
+ks.env
+vendor/shell-v1.1.0.apk
+
+# ---- 根目录一次性补丁脚本（不进仓库）----
+/*.py
+/*.ps1
+!/build.ps1
+/*.log
+/*.json
+!/package.json
+
+# ---- 系统与编辑器 ----
+Thumbs.db
+desktop.ini
+.DS_Store
+~$*
+*.swp
+.vscode/
+.idea/

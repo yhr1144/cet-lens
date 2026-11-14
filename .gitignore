@@ -42,3 +42,9 @@ desktop.ini
 *.docx
 OPTIMIZE-*.md
 REVIEW-*.md
+# scripts 下只保留构建需要的三个脚本
+/scripts/*.py
+!/scripts/aar_tools.py
+!/scripts/add_dex.py
+!/scripts/md_to_docx.py
+/scripts/__pycache__/

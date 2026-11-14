@@ -4,6 +4,16 @@
 
 当前版本 **1.2.0**（versionCode 4），Android 7.0（API 24）及以上。
 
+## 作者与分工
+
+| 角色 | 承担的工作 |
+|---|---|
+| **[yhr1144](https://github.com/yhr1144)** | 项目发起人。确定产品定位与目标用户，设计和拍板全部交互流程（扫描两档、批改四步闸门、收藏分类、范文入口），在真机上逐条验收，判断哪些功能该删、哪些该留 |
+| **AI 编程助手**（DeepSeek Harness） | 按需求写实现：Android 壳与 WebView 前端、DeepSeek OCR 与批改接入、构建脚本、README 与发行说明，以及绝大部分 bug 的定位与修复 |
+| **第三方组件** | 离线识别 Google ML Kit；词库 ECDICT（MIT）；例句 Tatoeba（CC BY 2.0 FR）；同义词 Princeton WordNet 3.0 |
+
+产品的判断来自人，代码的实现来自 AI。所有决定权、测试与验收在项目发起人手里。
+
 ## 功能
 
 **扫描精读**

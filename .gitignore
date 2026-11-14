@@ -30,3 +30,15 @@ desktop.ini
 *.swp
 .vscode/
 .idea/
+# ---- 仅存在于本地/其它分支的素材目录（不进公开仓库）----
+/art/
+/assets/
+/data-src/
+/handwriting/
+/mlkit-test/
+/promo/
+/vendor-src/
+/.gitignore.public
+*.docx
+OPTIMIZE-*.md
+REVIEW-*.md

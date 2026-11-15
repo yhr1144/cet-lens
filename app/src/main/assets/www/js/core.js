@@ -33,7 +33,7 @@
   CET.store = store;
 
   /* Single source of truth for the version shown in-app and in exports. */
-  CET.APP_VERSION = '1.2.4';
+  CET.APP_VERSION = '1.2.5';
 
   const state = CET.state = {
     tab: 'scan',
@@ -525,7 +525,8 @@
     const cur = sheetStack[sheetStack.length - 1];
     const head = $('#sheet-head');
     const body = $('#sheet-body');
-    const back = sheetStack.length > 1
+    /* noBack：一次性流程（例如批改向导）不需要返回上一步，避免用户跳回去改图。 */
+    const back = (!cur.noBack && sheetStack.length > 1)
       ? '<button type="button" class="sheet-close" data-sheet-back aria-label="返回">' + CET.icon('arrowLeft') + '</button>'
       : '';
     head.innerHTML =
@@ -550,7 +551,8 @@
         title: opts.title || '',
         sub: opts.sub || '',
         html: opts.html || '',
-        onMount: opts.onMount
+        onMount: opts.onMount,
+        noBack: !!opts.noBack
       });
       renderSheet();
     },

@@ -1539,7 +1539,7 @@
      * 否则连点两次拍照时，第二张会被当成普通扫描图，界面被拉到扫描页，
      * 而批改向导那一步还空着，看起来就像「没跳下一步」。
      */
-    const expectsImage = state.pendingExamPhoto || state.pendingExamPage || state.pendingScanTarget;
+    const expectsImage = state.pendingExamPhoto || state.pendingExamPage || state.pendingScanTarget || state.pendingScan;
     if (!expectsImage) {
       CET.toast('多余的图片已忽略，请重新拍');
       return;
@@ -1583,6 +1583,11 @@
         state.examPages.push({ id: 'ep' + Date.now() + Math.random().toString(36).slice(2, 5), dataUrl: cropped, mode });
         openExamPaperScan();
       });
+      return;
+    }
+    if (state.pendingScan) {
+      state.pendingScan = false;
+      openCropEditor(dataUrl, (cropped) => runScanOcr(cropped, true));
       return;
     }
     if (state.pendingScanTarget) {
@@ -2290,7 +2295,7 @@
     try {
       const r = await CET.AI.ocrText(img, { filename: role === 'prompt' ? 'prompt.jpg' : 'answer.jpg' });
       let t = (r.text || '').trim();
-      if (role === 'answer') t = collapseStruckOut(t).text;
+      /* 不再合并重复词：OCR 的重复往往就是原文内容，合并会吃掉真实词语。 */
       state.exam[key] = t;
       saveExamNow();
       if (!t) CET.toast(role === 'prompt' ? '题目没读到文字，请重拍' : '内容没读到文字，请重拍', 'red');
@@ -2343,6 +2348,7 @@
     if (contentText) done.push('内容 ' + contentText.split(/\s+/).filter(Boolean).length + ' 词');
 
     CET.sheet.open({
+      noBack: true,
       title: '第 ' + step + ' 步 · ' + title,
       sub: done.length ? '已完成：' + done.join(' · ') : (label + '批改'),
       html: '<div class="card card-tight" style="padding:16px">' + actions + '</div>',
@@ -2387,7 +2393,7 @@
         const btn = body.querySelector('#exam-photo-save');
         if (!btn) return;
         btn.addEventListener('click', () => {
-          const val = collapseStruckOut((body.querySelector('#exam-photo-text') || {}).value || '');
+          const val = { text: String((body.querySelector('#exam-photo-text') || {}).value || '') };
           const prompt = (body.querySelector('#exam-photo-prompt') || {}).value || '';
           state.exam[promptKey] = prompt.trim();
           state.exam[textKey] = val.text.trim();
@@ -2607,7 +2613,7 @@
     const hasAnyData = hasText || showScore || (state.examPromptKind === kind && !!state.examPromptImage) || (state.examAnswerKind === kind && !!state.examAnswerImage);
     return '<div class="card paper-subject-card"><div class="row"><b class="paper-subject-title">' + label + '</b>' +
       '<span class="right paper-subject-score">' + score + '</span>' +
-      (hasAnyData ? '<button class="btn btn-ghost btn-sm" data-action="paper-clear-subject" data-subject="' + kind + '">清除</button>' : '') + '</div>' +
+      '<button class="btn btn-ghost btn-sm" data-action="paper-clear-subject" data-subject="' + kind + '">清除</button>' + '</div>' +
       '<div class="tiny muted mt6">' + (band || (hasText ? '已识别，可查看/修改' : (state.examPromptKind === kind && state.examPromptImage ? '题目已拍，接着拍内容' : '先拍题目，再拍内容'))) + (callMeta ? '<span class="muted"> · ' + callMeta.replace(/^ · /, '') + '</span>' : '') + '</div>' +
       '<div class="mt10">' + (showScore ? '' : '<button class="btn ' + (hasText ? 'btn-outline' : 'btn-primary') + ' btn-block paper-subject-btn" data-action="exam-photo-' + kind + '">' + CET.icon('camera') + '拍照</button>') +
         (text && text.trim() ? '<button class="btn btn-soft btn-block mt6" data-action="exam-edit-' + kind + '">' + CET.icon('writing') + '查看/修改</button>' : '') +
@@ -3595,8 +3601,7 @@
   /* 拿「可升级表达」或问题里引用的短语去联网查证，报告里给出来源链接。 */
   function gradePaper() {
     /* Handwriting strike-outs come back as duplicated words; never score them as repeats. */
-    state.exam.essayText = collapseStruckOut(state.exam.essayText || '', true).text;
-    state.exam.translationText = collapseStruckOut(state.exam.translationText || '', true).text;
+
     if (state.tab !== 'exam') state.tab = 'exam';
     state.navHistory = [];
     const st = examMarksStats(state.exam.paperMarks || '');
@@ -4957,9 +4962,14 @@
   function handleAction(action, el) {
     switch (action) {
       case 'camera':
+        /* 扫描页的拍照/相册：用独立标记放行，不要复用 pendingScanTarget（那是插入文本用的）。 */
+        state.pendingScan = true;
+        state.examFlowKind = '';
         startCamera();
         break;
       case 'gallery':
+        state.pendingScan = true;
+        state.examFlowKind = '';
         startGallery();
         break;
       case 'search': openSearch(); break;

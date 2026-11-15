@@ -2322,8 +2322,7 @@
       actions = '<div class="tiny muted">正在识别' + label + '…</div>';
     } else {
       step = 5; title = '开始批改';
-      actions = '<button class="btn btn-primary btn-block" id="exam-photo-regrade">' + CET.icon('sparkles') + '开始批改</button>' +
-        (promptText ? '<button class="btn btn-outline btn-block mt8" id="exam-gen-essay">' + CET.icon('writing') + (isW ? '按题目生成范文' : '生成参考译文') + '</button>' : '');
+      actions = '<button class="btn btn-primary btn-block" id="exam-photo-regrade">' + CET.icon('sparkles') + '开始批改</button>';
     }
 
     const done = [];
@@ -2343,26 +2342,6 @@
             CET.sheet.close();
             if (source === 'gallery') startGallery(); else startCamera();
           });
-        });
-        const gen = body.querySelector('#exam-gen-essay');
-        if (gen) gen.addEventListener('click', async () => {
-          gen.disabled = true; gen.textContent = '生成中…';
-          try {
-            const text = isW
-              ? await CET.AI.composeEssay(promptText, state.exam.level)
-              : await CET.AI.composeTranslation(promptText, state.exam.level);
-            CET.sheet.open({
-              title: isW ? '范文（AI 生成）' : '参考译文（AI 生成）',
-              sub: (state.exam.level === 6 ? 'CET-6' : 'CET-4') + ' · ' + text.split(/\s+/).filter(Boolean).length + ' 词',
-              html: '<div class="card" style="padding:16px"><div class="token-text" style="font-size:15px;line-height:1.8">' + esc(text) + '</div>' +
-                '<div class="row mt12"><button class="btn btn-ghost btn-sm" data-copy="' + CET.escAttr(text) + '">' + CET.icon('copy') + '复制</button>' +
-                CET.fav.button({ type: 'sentence', term: text, sub: isW ? 'AI 范文' : 'AI 参考译文', note: String(promptText || '').slice(0, 40), source: isW ? 'AI 范文' : 'AI 参考译文', payload: { text: text } }) + '</div></div>'
-            });
-          } catch (e) {
-            CET.toast('生成失败：' + ((e && e.message) || '未知'), 'red');
-          } finally {
-            if (gen) { gen.disabled = false; gen.textContent = isW ? '按题目生成范文' : '生成参考译文'; }
-          }
         });
         const go = body.querySelector('#exam-photo-regrade');
         if (go) go.addEventListener('click', () => {

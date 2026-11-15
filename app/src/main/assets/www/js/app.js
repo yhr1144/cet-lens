@@ -1543,22 +1543,9 @@
         openCropEditor(dataUrl, (cropped) => {
           state.examPromptKind = kind;
           state.examPromptImage = cropped;
-          CET.toast('题目识别中…');
-          state.examPromptPromise = OCR.recognize(cropped).then((res) => {
-            const key = kind === 'writing' ? 'essayPrompt' : 'translationPrompt';
-            const t = String(res.text || '').trim();
-            state.exam[key] = t;
-            state.examPromptText = { kind: kind, text: t };
-            saveExamNow();
-            CET.toast(t ? '题目已识别：' + t.slice(0, 24) + (t.length > 24 ? '…' : '') : '题目没读到文字，请重拍或手填');
-            render(false);
-            setTimeout(() => examPhotoCapture(kind), 80);
-          }).catch((e) => {
-            state.examPromptText = { kind: kind, text: '', error: (e && e.message) || '识别失败' };
-            render(false);
-            CET.toast('题目识别失败：' + ((e && e.message) || '未知'), 'red');
-          });
-          setTimeout(() => afterExamPhoto(kind, 'prompt'), 80);
+          saveExamNow();
+          examPhotoCapture(kind);
+          ocrStep(kind, 'prompt');
         }, kind);
         return;
       }
@@ -1567,12 +1554,12 @@
         setTimeout(() => examPhotoCapture(kind), 60);
         return;
       }
-      state.examAnswerImage = dataUrl;
-      state.examAnswerKind = kind;
       openCropEditor(dataUrl, (cropped) => {
         state.examAnswerImage = cropped;
         state.examAnswerKind = kind;
-        setTimeout(() => afterExamPhoto(kind, 'answer'), 80);
+        saveExamNow();
+        examPhotoCapture(kind);
+        ocrStep(kind, 'answer');
       }, kind);
       return;
     }
@@ -2665,13 +2652,13 @@
         paperSubjectCard('writing', r && r.essay) +
         paperSubjectCard('translation', r && r.translation) +
       '</section>' +
-      (hasAny ? '<section class="section"><div class="card" id="exam-result" style="padding:18px"><div class="row"><div class="grow"><b style="font-size:24px">' + (Math.round((((r.essay && state.exam.essayText) ? r.essay.converted : 0) + ((r.translation && state.exam.translationText) ? r.translation.converted : 0)) * 10) / 10) + ' / ' + (106.5 * (((r.essay && state.exam.essayText) ? 1 : 0) + ((r.translation && state.exam.translationText) ? 1 : 0)) || r.totalMax) + '</b>' +
+      (hasAny ? '<section class="section"><div class="card" id="exam-result" style="padding:18px"><div class="row"><div class="grow"><b style="font-size:24px">' + (Math.round((((r.essay && state.exam.essayText) ? r.essay.converted : 0) + ((r.translation && state.exam.translationText) ? r.translation.converted : 0)) * 10) / 10) + ' / ' + ((106.5 * (((r.essay && state.exam.essayText) ? 1 : 0) + ((r.translation && state.exam.translationText) ? 1 : 0))) || 213) + '</b>' +
         '<div class="tiny muted mt6">写作 + 翻译合计</div></div><div class="right"><span class="badge soft">主观题</span></div></div></div></section>' : '') +
-      (hasObjective ? '<section class="section"><div class="card" style="padding:18px"><div class="row"><div class="grow"><b style="font-size:24px">' + (Math.round((r.score || 0) * 10) / 10) + ' / ' + Math.round((r.totalMax - 106.5 * (((r.essay && state.exam.essayText) ? 1 : 0) + ((r.translation && state.exam.translationText) ? 1 : 0))) * 10) / 10 + '</b>' +
+      (hasObjective ? '<section class="section"><div class="card" style="padding:18px"><div class="row"><div class="grow"><b style="font-size:24px">' + (Math.round((r.score || 0) * 10) / 10) + ' / 497</b>' +
       '<div class="tiny muted mt6">听力 + 阅读（按勾叉）</div></div><div class="right"><span class="badge gray">客观题</span></div></div></div></section>' : '') +
       (hasAny ? '<section class="section"><div class="card" style="padding:18px"><div class="row"><div class="grow"><b style="font-size:26px">' +
       (Math.round(((r.score || 0) + ((r.essay && state.exam.essayText) ? r.essay.converted : 0) + ((r.translation && state.exam.translationText) ? r.translation.converted : 0)) * 10) / 10) + ' / ' +
-      r.totalMax + '</b>' +
+      (497 + 106.5 * (((r.essay && state.exam.essayText) ? 1 : 0) + ((r.translation && state.exam.translationText) ? 1 : 0))) + '</b>' +
       '<div class="tiny muted mt6">客观题 + 写作 + 翻译</div></div><div class="right"><span class="badge soft">总分</span></div></div></div></section>' : '') +
       '<div class="pill-note mt14">' + CET.icon('info') + ' 写作、翻译分别拍照识别后自动批改；识别结果可点「查看/修改」调整文字后重新算分。</div>' +
       '<section class="section"><details class="card paper-disclaimer"><summary>写作 / 翻译评分免责声明</summary>' +

@@ -1545,7 +1545,7 @@
       return;
     }
     if (state.pendingExamPhoto) {
-      const kind = state.pendingExamPhoto;
+      const kind = state.examFlowKind || state.pendingExamPhoto;
       const role = state.pendingExamRole || 'answer';
       state.pendingExamPhoto = null;
       state.pendingExamRole = null;
@@ -2305,6 +2305,9 @@
   }
 
   function examPhotoCapture(kind) {
+    /* 一旦进入拍照向导就锁定科目，避免写作/翻译的图和步骤互相串。 */
+    if (state.examFlowKind) kind = state.examFlowKind;
+    else state.examFlowKind = kind;
     state.examPhotoKind = kind;
     const isW = kind === 'writing';
     const label = isW ? '作文' : '翻译';
@@ -5062,8 +5065,8 @@
       case 'grade-all': gradeAll(); break;
       case 'paper-grade': gradePaper(); break;
       case 'paper-review': reviewExamMarks(state.exam.paperMarks || ''); break;
-      case 'exam-photo-writing': examPhotoCapture('writing'); break;
-      case 'exam-photo-translation': examPhotoCapture('translation'); break;
+      case 'exam-photo-writing': state.examFlowKind = 'writing'; examPhotoCapture('writing'); break;
+      case 'exam-photo-translation': state.examFlowKind = 'translation'; examPhotoCapture('translation'); break;
       case 'exam-edit-writing': openExamTextEditor('writing', state.exam.essayText || ''); break;
       case 'exam-edit-translation': openExamTextEditor('translation', state.exam.translationText || ''); break;
       case 'crop-scan':

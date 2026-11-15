@@ -82,6 +82,7 @@
     return null;
   }
   let lastCall = null;
+  let lastReasoning = '';
 
   async function chat(content, opts) {
     const o = opts || {};
@@ -154,6 +155,8 @@
       lastCall = { at: Date.now(), ms: Date.now() - started, usage: j.usage || null, endpoint: 'chat/completions' };
       const choice = j.choices && j.choices[0];
       const message = choice && choice.message ? choice.message : {};
+      /* 推理模型把正文放 reasoning_content，记下来给解析做兜底。 */
+      lastReasoning = typeof message.reasoning_content === 'string' ? message.reasoning_content : '';
       if (message.refusal) throw new Error('内容未通过安全审核，换一段内容再试');
       const text = typeof message.content === 'string' ? message.content : '';
       if (!text) {
@@ -291,53 +294,83 @@
       { type: 'text', text: prompt },
       { type: 'image_url', image_url: { url: dataUrl, detail: 'original' } }
     ], { json: true });
-    const obj = parseJSON(raw);
-    if (!obj) throw new Error('模型返回格式错误');
+    let obj = parseJSON(raw);
+    /* 推理模型会把内容写进 reasoning_content，content 为空时用推理文本兜底。 */
+    if (!obj) {
+      let reason = '';
+      try { reason = String(lastReasoning || ''); } catch (e) {}
+      if (reason) obj = parseJSON(reason);
+    }
+    if (!obj) throw new Error('模型没有返回可解析的结果（可能被长度截断），请重试');
     return obj;
   }
 
   /* 固定的评分规则单独放 system：每次调用字节一致，能命中上下文缓存。 */
-  const GRADE_SYSTEM = `You are a CET-4/6 writing and translation examiner.
+  const GRADE_SYSTEM = `You are a CET-4/6 writing and translation examiner grading to the official 15-point scale.
 Return ONLY valid JSON, no Markdown.
 Schema:
 {
  "essay": {
    "raw": 0-15,
-   "band": "优秀|良好|合格|较弱|较差",
+   "band": "13-15|10-12|7-9|4-6|1-3|0",
    "bandReason": "为什么落在这个档，一句话",
    "wordCount": 0,
    "expected": "字数要求与是否达标",
-   "rubric": [{"name":"任务完成","score":0,"max":4,"why":"..."},{"name":"结构连贯","score":0,"max":3,"why":"..."},{"name":"语言准确","score":0,"max":4,"why":"..."},{"name":"词汇句式","score":0,"max":3,"why":"..."},{"name":"书写与卷面","score":0,"max":1,"why":"字迹是否清晰，1=工整可读，0.5=勉强可读，0=难以辨认"}],
+   "rubric": [{"name":"内容切题","score":0,"max":5,"why":"..."},{"name":"篇章结构","score":0,"max":5,"why":"..."},{"name":"语言规范","score":0,"max":5,"why":"..."},{"name":"书写与卷面","score":0,"max":1,"why":"仅提示，不计入 raw"}],
    "deductions": [{"item":"扣分点","lost":0.5,"why":"具体原因"}],
    "issues": [{"title":"问题类型","detail":"引用原句 + 为什么错 + 正确写法"}],
-   "sentences": [{"index":1,"original":"原句","fixed":"改写后","notes":["为什么这么改"]}],
    "strengths": ["做得好的地方"],
    "upgrades": [{"from":"原表达","to":"更地道表达","why":"原因"}],
    "nextSteps": ["下一步可以练的具体动作"]
  },
- "translation": { same fields, rubric: 准确性(6)/通顺度(4)/完整性(4)/书写与卷面(1) }
+ "translation": { same fields; band by 准确性/通顺度/完整性 }
 }
-Score honestly. Omit the section that has no text.
-How to score: give raw on the 15-point scale directly, as an examiner would; then fill the rubric items so they roughly add up to raw (essay: 4+3+4+3+1=15, translation: 6+4+4+1=15). 书写与卷面 is worth 1 point maximum: 1 = neat and readable, 0.5 = readable with effort, 0 = largely illegible.
-Handwriting is judged from the photo, not the transcript: score 书写与卷面 on legibility (clear 3, readable 2, hard to read 1, illegible 0). Handwriting does NOT change the official band by itself; if strokes are so unclear that words cannot be read, add a deduction of 0.5-1 named "字迹难以辨认" instead. Never invent content you cannot read.
-Bands: 13-15 优秀, 10-12.5 良好, 7-9.5 合格, 4-6.5 较弱, 1-3.5 较差.
-CET-6 expects 150-200 words and clearly higher vocabulary, sentence variety and cohesion than CET-4: do not give CET-4-level credit for simple language. CET-4 expects 120-180 words.
-If essay.prompt is empty, DO NOT judge task relevance; grade language only and set essay.band to "语言评分（无题目）".
-Use Chinese for rubric[].name, band, bandReason, expected, deductions, issues, notes, nextSteps; quote the student's English verbatim.
-The text comes from OCR of handwriting and may contain strike-out artifacts: the same word twice in a row, or a word immediately followed by the word that replaced it. Treat an immediately repeated identical word as written once and do NOT list it as a repetition error; ignore fragments that are obviously crossed out.
-Be terse. Every correction must be word-level: upgrades.from is the exact words to change, upgrades.to is the replacement, why <= 30 chars. issues.detail <= 60 chars. No paragraphs.`;
+Official band descriptions (use these to decide band and raw):
+- 13-15 分：切题，表达思想清楚，文字通顺连贯，基本上无语言错误，仅有个别小错。
+- 10-12 分：切题，表达思想清楚，文字较连贯，但有少量语言错误。
+- 7-9 分：基本切题，有些地方表达思想不够清楚，文字勉强连贯，语言错误相当多，其中有一些是严重错误。
+- 4-6 分：基本切题，表达思想不清楚，连贯性差，有较多的严重语言错误。
+- 1-3 分：条理不清，思路紊乱，语言支离破碎或大部分句子均有错误，且多数为严重错误。
+- 0 分：未作答，或只有几个孤立的词，或作文与主题毫不相关。
+How to score:
+1. Read the whole piece once, then pick the band that matches the official descriptions above.
+2. raw MUST fall inside the chosen band. If the piece sits between two bands, choose the lower one unless the language is clearly better than that band's description.
+3. rubric items are diagnostic only; they must not override the band. The three counted items (5+5+5) are a breakdown of the band, so their sum should be close to raw.
+4. 书写与卷面 is NOT part of raw. Only when handwriting makes words unreadable, add a deduction named 字迹难以辨认 (0.5-1) and mention it in bandReason.
+5. Word count: CET-4 expects 120-180 words, CET-6 expects 150-200. If clearly short (under 100), cap the band at 7-9 and say so in expected.
+6. Do not reward length, fancy words or template phrases on their own; score what the official descriptions reward: relevance, clarity, coherence, accuracy.
+Use Chinese for band, bandReason, expected, deductions, issues, nextSteps; quote the student's English verbatim.
+Be terse. upgrades.from is the exact words to change, why <= 30 chars.`;
 
   /* 直接把题目图和手写图交给模型：一次请求完成转写 + 批改，不先做 OCR。 */
   async function gradeFromImages(p) {
     const isW = p.kind !== 'translation';
+    /* 手机原图动辄 3-5 MB，两张一起发容易 400 或超时，这里先压到 1600px。 */
+    const shrink = (src) => new Promise((resolve) => {
+      const img = new Image();
+      img.onload = () => {
+        const max = 1600;
+        const scale = Math.min(1, max / Math.max(img.width, img.height));
+        if (scale >= 1) { resolve(src); return; }
+        const c = document.createElement('canvas');
+        c.width = Math.round(img.width * scale);
+        c.height = Math.round(img.height * scale);
+        c.getContext('2d').drawImage(img, 0, 0, c.width, c.height);
+        try { resolve(c.toDataURL('image/jpeg', 0.85)); } catch (e) { resolve(src); }
+      };
+      img.onerror = () => resolve(src);
+      img.src = src;
+    });
+    const promptImage = await shrink(p.promptImage);
+    const answerImage = await shrink(p.answerImage);
     const prompt = isW
       ? 'Image 1 is the essay prompt (Directions). Image 2 is the student handwritten essay. Transcribe the essay into "text" (skipping words the writer clearly crossed out), then grade it and fill "essay".'
       : 'Image 1 is the Chinese source passage. Image 2 is the student handwritten English translation. Transcribe the translation into "text" (skipping crossed-out words), then grade it and fill "translation".';
     const raw = await chat([
       { type: 'text', text: prompt },
-      { type: 'image_url', image_url: { url: p.promptImage, detail: 'high' } },
-      { type: 'image_url', image_url: { url: p.answerImage, detail: 'high' } }
-    ], { json: true, safety: true, system: GRADE_SYSTEM, maxTokens: 8192, timeoutMs: 240000, temperature: 0 });
+      { type: 'image_url', image_url: { url: promptImage, detail: 'high' } },
+      { type: 'image_url', image_url: { url: answerImage, detail: 'high' } }
+    ], { json: true, safety: true, system: GRADE_SYSTEM, maxTokens: 16384, timeoutMs: 240000, temperature: 0 });
     const obj = parseJSON(raw);
     if (!obj) throw new Error('模型返回格式错误');
     return obj;

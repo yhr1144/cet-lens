@@ -270,10 +270,10 @@
     ].join(' ');
     const raw = await chat([
       { type: 'text', text: prompt },
-      { type: 'image_url', image_url: { url: dataUrl, detail: 'original' } }
-    ], { json: true }).catch(() => chat([
+      { type: 'image_url', image_url: { url: dataUrl, detail: 'high' } }
+    ], {}).catch(() => chat([
       { type: 'text', text: prompt },
-      { type: 'image_url', image_url: { url: dataUrl, detail: 'original' } }
+      { type: 'image_url', image_url: { url: dataUrl, detail: 'high' } }
     ]));
     const obj = parseJSON(raw);
     return obj && typeof obj.text === 'string' ? obj.text : '';
@@ -292,7 +292,7 @@
     ].join(' ');
     const raw = await chat([
       { type: 'text', text: prompt },
-      { type: 'image_url', image_url: { url: dataUrl, detail: 'original' } }
+      { type: 'image_url', image_url: { url: dataUrl, detail: 'high' } }
     ], { json: true });
     let obj = parseJSON(raw);
     /* 推理模型会把内容写进 reasoning_content，content 为空时用推理文本兜底。 */

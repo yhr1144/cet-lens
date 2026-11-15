@@ -307,7 +307,7 @@ Schema:
    "bandReason": "为什么落在这个档，一句话",
    "wordCount": 0,
    "expected": "字数要求与是否达标",
-   "rubric": [{"name":"任务完成","score":0,"max":4,"why":"这一项为什么拿这个分"},{"name":"书写与卷面","score":0,"max":3,"why":"字迹是否清晰、涂改是否影响判读"}],
+   "rubric": [{"name":"任务完成","score":0,"max":4,"why":"..."},{"name":"结构连贯","score":0,"max":3,"why":"..."},{"name":"语言准确","score":0,"max":5,"why":"..."},{"name":"词汇句式","score":0,"max":3,"why":"..."},{"name":"书写与卷面","score":0,"max":3,"counts":false,"why":"字迹是否清晰"}],
    "deductions": [{"item":"扣分点","lost":0.5,"why":"具体原因"}],
    "issues": [{"title":"问题类型","detail":"引用原句 + 为什么错 + 正确写法"}],
    "sentences": [{"index":1,"original":"原句","fixed":"改写后","notes":["为什么这么改"]}],
@@ -315,9 +315,10 @@ Schema:
    "upgrades": [{"from":"原表达","to":"更地道表达","why":"原因"}],
    "nextSteps": ["下一步可以练的具体动作"]
  },
- "translation": { same fields, rubric names use 准确性/通顺度/完整性/书写与卷面 }
+ "translation": { same fields, rubric: 准确性(6)/通顺度(5)/完整性(4)/书写与卷面(3, counts:false) }
 }
 Score honestly. Omit the section that has no text.
+How to score: first fill every rubric item with an integer or half point, then set raw to the sum of the rubric items whose max is counted (essay: 4+3+5+3=15, translation: 6+5+4=15). 书写与卷面 has counts:false and never adds to raw; it only triggers the 字迹难以辨认 deduction when unreadable. raw must equal that sum exactly.
 Handwriting is judged from the photo, not the transcript: score 书写与卷面 on legibility (clear 3, readable 2, hard to read 1, illegible 0). Handwriting does NOT change the official band by itself; if strokes are so unclear that words cannot be read, add a deduction of 0.5-1 named "字迹难以辨认" instead. Never invent content you cannot read.
 Bands: 13-15 优秀, 10-12.5 良好, 7-9.5 合格, 4-6.5 较弱, 1-3.5 较差.
 CET-6 expects 150-200 words and clearly higher vocabulary, sentence variety and cohesion than CET-4: do not give CET-4-level credit for simple language. CET-4 expects 120-180 words.

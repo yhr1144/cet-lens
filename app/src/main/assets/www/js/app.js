@@ -3527,7 +3527,18 @@
       const apply = (kind, obj) => {
         if (!obj) return;
         const base = r[kind] || {};
-        const raw = Math.max(0, Math.min(15, Number(obj.raw) || 0));
+        /*
+         * 分数以分项为准：模型先给每项分，再把分项加权求和当总分。
+         * 这样同一篇作文两次批改的差异只落在分项上，不会出现「分项一样、总分跳档」。
+         * 书写项 counts:false，不计入 15 分。
+         */
+        const items = Array.isArray(obj.rubric) ? obj.rubric : [];
+        const counted = items.filter((x) => x && x.counts !== false && Number(x.max) > 0);
+        const rubricSum = counted.reduce((a, x) => a + (Number(x.score) || 0), 0);
+        const rubricMax = counted.reduce((a, x) => a + Number(x.max), 0);
+        const raw = counted.length && rubricMax > 0
+          ? Math.max(0, Math.min(15, Math.round((rubricSum / rubricMax * 15) * 2) / 2))
+          : Math.max(0, Math.min(15, Number(obj.raw) || 0));
         r[kind] = Object.assign({}, base, {
           raw,
           converted: Math.round(raw / 15 * 106.5 * 10) / 10,

@@ -2498,6 +2498,13 @@
     const e = all && (kind === 'writing' ? all.essay : all.translation);
     if (!e) { CET.toast('还没有批改结果'); return; }
     const label = kind === 'writing' ? '作文' : '翻译';
+    /* 分项是模型逐维打的分，整体分是它的综合定档，两者可能差 0.5-1 分，说明清楚免得像 bug。 */
+    const rubricNote = (e) => {
+      const items = (e.rubric || []).filter((x) => x && Number(x.max) > 0);
+      const sum = Math.round(items.reduce((a, x) => a + (Number(x.score) || 0), 0) * 10) / 10;
+      if (!items.length) return '';
+      return '<span class="tiny muted">分项合计 ' + sum + ' / 15 · 整体定档 ' + e.raw + ' / 15</span>';
+    };
     const rubric = (e.rubric || []).map((x) =>
       '<div class="card card-tight" style="padding:12px"><div class="row"><b style="font-size:13px">' + esc(x.name) + '</b><span class="right" style="font-weight:800">' + x.score + ' / ' + x.max + '</span></div>' +
       (x.why ? '<div class="tiny muted mt6" style="line-height:1.6">' + esc(x.why) + '</div>' : '') + '</div>'
@@ -2537,7 +2544,7 @@
         '<span class="badge soft">' + esc(e.band ? e.band.label : '') + '</span></div>' +
         '<div class="tiny muted mt8">' + e.wordCount + ' 词 · ' + esc(e.expected || '') + '</div></div>' +
         (e.bandReason ? '<div class="callout mt12">' + esc(e.bandReason) + '</div>' : '') +
-        '<div class="section-head mt14"><h2>评分项</h2></div>' + rubric +
+        '<div class="section-head mt14"><h2>评分项</h2>' + rubricNote(e) + '</div>' + rubric +
         (deductions ? '<div class="section-head mt14"><h2>扣分说明</h2></div>' + deductions : '') +
         (issues ? '<div class="section-head mt14"><h2>主要问题</h2></div>' + issues : '') +
         (strengths ? '<div class="section-head mt14"><h2>做得好的地方</h2></div><ul class="tiny" style="padding-left:18px;line-height:1.9">' + strengths + '</ul>' : '') +
@@ -3456,6 +3463,20 @@
   }
 
   async function aiGradePaper(kind) {
+    /*
+     * 一次只能跑一个批改。之前连点两次「开始批改」，第二个请求会在结果出来后又挂一块
+     * 「批改中」面板，几秒后把已经显示好的分数覆盖成另一个值——看起来就像分数乱跳。
+     */
+    if (state.gradeBusy) { CET.toast('正在批改，请稍等'); return; }
+    state.gradeBusy = true;
+    try {
+      await aiGradePaperInner(kind);
+    } finally {
+      state.gradeBusy = false;
+    }
+  }
+
+  async function aiGradePaperInner(kind) {
     const keyOk = !!(CET.AI && CET.AI.getConfig && String(CET.AI.getConfig().key || '').trim());
     if (!keyOk) {
       CET.toast('批改需要 API Key：设置 → AI 模型', 'red');

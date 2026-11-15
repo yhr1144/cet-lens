@@ -84,6 +84,25 @@
   let lastCall = null;
   let lastReasoning = '';
 
+  /*
+   * 生成范文/译文时，推理模型会先写推理再写正文；额度不够时正文为空。
+   * 这里做两次尝试，第二次把额度翻倍，仍然为空才报错。
+   */
+  async function askStable(content, opts) {
+    let lastErr = null;
+    for (let i = 0; i < 2; i++) {
+      const o = i === 0 ? opts : Object.assign({}, opts, { maxTokens: Math.min(16384, (opts.maxTokens || 4000) * 2) });
+      try {
+        const t = await chat(content, o);
+        if (String(t || '').trim()) return t;
+        lastErr = new Error('模型没有返回内容，可能推理占满了额度');
+      } catch (e) {
+        lastErr = e;
+      }
+    }
+    throw lastErr || new Error('生成失败');
+  }
+
   async function chat(content, opts) {
     const o = opts || {};
     const cfg = getConfig();
@@ -402,15 +421,14 @@ Be terse. upgrades.from is the exact words to change, why <= 30 chars.`;
       '6) Word count: CET-4 140-160, CET-6 170-190. Grammar must be flawless, spelling exact.',
       'Return ONLY the essay text, no title, no notes, no word count.'
     ].join('\n');
-    const raw = await chat('Prompt:\n' + String(promptText || '').slice(0, 2000), { system: sys, maxTokens: 1200, safety: true, timeoutMs: 120000 });
+    const raw = await askStable('Prompt:\n' + String(promptText || '').slice(0, 2000), { system: sys, maxTokens: 8000, safety: true, timeoutMs: 180000 });
     return String(raw || '').trim();
   }
 
   /* 按中文原文生成一篇参考译文。 */
   async function composeTranslation(promptText, level) {
     const sys = 'You are a CET-4/6 translation grader. Translate the given Chinese passage into one natural, exam-ready English version. Match the register of a high-scoring CET-4/6 translation. Return ONLY the English translation, no notes.';
-    const raw = await chat('Level: CET-' + (level === 6 ? '6' : '4') + '\nChinese passage:\n' + String(promptText || '').slice(0, 2000),
-      { system: sys, maxTokens: 1200, safety: true, timeoutMs: 120000 });
+    const raw = await askStable('Level: CET-' + (level === 6 ? '6' : '4') + '\nChinese passage:\n' + String(promptText || '').slice(0, 2000), { system: sys, maxTokens: 8000, safety: true, timeoutMs: 180000 });
     return String(raw || '').trim();
   }
 

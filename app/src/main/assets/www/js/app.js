@@ -2293,8 +2293,13 @@
     state[role === 'prompt' ? 'examPromptBusy' : 'examAnswerBusy'] = true;
     examPhotoCapture(kind);
     try {
-      const r = await CET.AI.ocrText(img, { filename: role === 'prompt' ? 'prompt.jpg' : 'answer.jpg' });
-      let t = (r.text || '').trim();
+      /* OCR 偶尔返回空（字迹浅、压缩后细节丢失），自动再试一次再报错。 */
+      let text = '';
+      for (let attempt = 0; attempt < 2 && !text; attempt++) {
+        const r = await CET.AI.ocrText(img, { filename: role === 'prompt' ? 'prompt.jpg' : 'answer.jpg' });
+        text = String((r && r.text) || '').trim();
+      }
+      let t = text;
       /* 不再合并重复词：OCR 的重复往往就是原文内容，合并会吃掉真实词语。 */
       state.exam[key] = t;
       saveExamNow();
@@ -3481,6 +3486,13 @@
       await aiGradePaperInner(kind);
     } finally {
       state.gradeBusy = false;
+      /* 失败时也要收起「批改中」面板和计时器，否则会一直转圈。 */
+      if (state.gradeTimer) { clearInterval(state.gradeTimer); state.gradeTimer = null; }
+      if (state.gradeSheet) {
+        state.gradeSheet = false;
+        try { if (CET.sheet && CET.sheet.isOpen && CET.sheet.isOpen()) CET.sheet.closeAll(); } catch (e) {}
+      }
+      CET.keepAwake(false);
     }
   }
 
@@ -3502,6 +3514,7 @@
     CET.keepAwake(true);
     if (state.gradeTimer) clearInterval(state.gradeTimer);
     const startedAt = Date.now();
+    state.gradeSheet = true;
     CET.sheet.open({
       title: '批改中',
       sub: '模型正在看两张图',
@@ -3518,7 +3531,17 @@
       const answerImg = state.examAnswerImage || '';
       if (promptImg && answerImg) {
         /* 只走整模型：两张图直接交给它转写并批改，不做本地 OCR。 */
-        const obj = await CET.AI.gradeFromImages({ kind: kind === 'translation' ? 'translation' : 'writing', promptImage: promptImg, answerImage: answerImg });
+        /* 服务端偶发 5xx/超时，自动再试一次再报错。 */
+        let obj = null, lastErr = null;
+        for (let attempt = 0; attempt < 2 && !obj; attempt++) {
+          try {
+            obj = await CET.AI.gradeFromImages({ kind: kind === 'translation' ? 'translation' : 'writing', promptImage: promptImg, answerImage: answerImg });
+          } catch (e) {
+            lastErr = e;
+            if (attempt === 0) await new Promise((r) => setTimeout(r, 2000));
+          }
+        }
+        if (!obj) throw (lastErr || new Error('批改失败'));
         const head = isWriting ? (obj.essay || {}) : (obj.translation || {});
         const text = String(obj.text || head.text || '').trim();
         if (text) {

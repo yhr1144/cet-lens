@@ -307,7 +307,7 @@ Schema:
    "bandReason": "为什么落在这个档，一句话",
    "wordCount": 0,
    "expected": "字数要求与是否达标",
-   "rubric": [{"name":"任务完成","score":0,"max":4,"why":"这一项为什么拿这个分"}],
+   "rubric": [{"name":"任务完成","score":0,"max":4,"why":"这一项为什么拿这个分"},{"name":"书写与卷面","score":0,"max":3,"why":"字迹是否清晰、涂改是否影响判读"}],
    "deductions": [{"item":"扣分点","lost":0.5,"why":"具体原因"}],
    "issues": [{"title":"问题类型","detail":"引用原句 + 为什么错 + 正确写法"}],
    "sentences": [{"index":1,"original":"原句","fixed":"改写后","notes":["为什么这么改"]}],
@@ -315,9 +315,10 @@ Schema:
    "upgrades": [{"from":"原表达","to":"更地道表达","why":"原因"}],
    "nextSteps": ["下一步可以练的具体动作"]
  },
- "translation": { same fields, rubric names use 准确性/通顺度/完整性 }
+ "translation": { same fields, rubric names use 准确性/通顺度/完整性/书写与卷面 }
 }
 Score honestly. Omit the section that has no text.
+Handwriting is judged from the photo, not the transcript: score 书写与卷面 on legibility (clear 3, readable 2, hard to read 1, illegible 0). Handwriting does NOT change the official band by itself; if strokes are so unclear that words cannot be read, add a deduction of 0.5-1 named "字迹难以辨认" instead. Never invent content you cannot read.
 Bands: 13-15 优秀, 10-12.5 良好, 7-9.5 合格, 4-6.5 较弱, 1-3.5 较差.
 CET-6 expects 150-200 words and clearly higher vocabulary, sentence variety and cohesion than CET-4: do not give CET-4-level credit for simple language. CET-4 expects 120-180 words.
 If essay.prompt is empty, DO NOT judge task relevance; grade language only and set essay.band to "语言评分（无题目）".

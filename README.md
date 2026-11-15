@@ -100,6 +100,12 @@ HANDOFF.md                           开发交接：构建细节与踩坑记录
 - 云端识别与批改需要联网和有效 Key；Key 无效、欠费、并发满都会在页面上直接显示原因
 - 无多页扫描、无文本校对入口、无数据导出
 
+## 致谢
+
+- **DeepSeek** 开放了 `/v1/tools/ocr` 接口，手写体识别才能按页计费、成本可控；本项目的云端识别与评分配套能力都建立在这个接口上。
+- **Google ML Kit** 提供了可离线运行的文字识别，让印刷体识别不需要联网。
+- **ECDICT**、**Tatoeba**、**Princeton WordNet** 提供了词库、例句与同义词数据。
+
 ## 数据来源
 
 - 词库 [ECDICT](https://github.com/skywind3000/ECDICT)（MIT）

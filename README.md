@@ -41,12 +41,12 @@
 **词库与阅读**
 - 20,499 核心词 + 768,610 条完整 ECDICT 词条，本机 SQLite 查询
 - 释义、音标、词形、双语例句、同义替换、高级表达、相关词组
-- 外刊精读 141 篇（CET-4 70 / CET-6 71），按主题分类，附原文链接
+- 语境精读 141 篇（CET-4 70 / CET-6 71）：**原创短文**，话题取自公开报道，按主题分类，附延伸阅读
 - 满分句式库：144 条句式 + 8 套模板；只读，可复制收藏（不支持插入作文）
 - 语音朗读：系统 TTS 或在线发音，可切换
 
 **收藏**
-- 单词、词组、句子、句式、外刊、**范文**、**翻译**、批改建议、判分报告都可收藏
+- 单词、词组、句子、句式、短文、**范文**、**翻译**、批改建议、判分报告都可收藏
 - 支持分类筛选、搜索、分页、背诵模式（遮住中文自测）
 
 ## AI 与费用
@@ -64,7 +64,7 @@
 | 中度 | 每天扫 3 页、每周批改 3 次 | ≈ ¥0.24 |
 | 重度 | 每天扫 10 页、每天批改 1 次 | ≈ ¥0.72 |
 
-不配 Key 时：离线 OCR、词库、外刊、句式库、勾叉算分全部可用，只是没有 AI 识别与批改。
+不配 Key 时：离线 OCR、词库、短文、句式库、勾叉算分全部可用，只是没有 AI 识别与批改。
 
 ## 构建
 
@@ -88,7 +88,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File build.ps1
 app/src/main/java/com/cet46/coach/   MainActivity、LocalServer、FullDict、CaptureProvider
 app/src/main/java/com/cet46/mlkit/   MlKitBridge（离线 OCR）
 app/src/main/assets/www/             前端：index.html + js/(app, ai, ocr, grader, dict, core) + styles.css
-app/src/main/assets/www/data/        外刊、句式、词表等静态数据
+app/src/main/assets/www/data/        短文、句式、词表等静态数据
 scripts/                             构建辅助（aar_tools、md_to_docx）
 HANDOFF.md                           开发交接：构建细节与踩坑记录
 ```

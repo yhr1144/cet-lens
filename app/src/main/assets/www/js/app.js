@@ -2602,7 +2602,7 @@
       '<div class="mt10">' + (showScore ? '' : '<button class="btn ' + (hasText ? 'btn-outline' : 'btn-primary') + ' btn-block paper-subject-btn" data-action="exam-photo-' + kind + '">' + CET.icon('camera') + '拍照</button>') +
         (text && text.trim() ? '<button class="btn btn-soft btn-block mt6" data-action="exam-edit-' + kind + '">' + CET.icon('writing') + '查看/修改</button>' : '') +
         ((isW && state.examAnswerKind === kind && state.examAnswerImage) ? '<button class="btn btn-ghost btn-block mt6" data-action="exam-crop-' + kind + '">' + CET.icon('scan') + '调整裁剪</button>' : '') +
-        (showScore ? '<button class="btn btn-soft btn-block mt8" data-action="exam-report-' + kind + '">' + CET.icon('award') + '查看作文批改</button>' : '') +
+        (showScore ? '<button class="btn btn-soft btn-block mt8" data-action="exam-report-' + kind + '">' + CET.icon('award') + (isW ? '查看作文批改' : '查看翻译批改') + '</button>' : '') +
         (showScore ? '<button class="btn btn-outline btn-block mt6" data-action="exam-sample-' + kind + '">' + CET.icon('writing') + (isW ? '生成范文' : '生成参考译文') + '</button>' : '') +
       '</div></div>';
   }

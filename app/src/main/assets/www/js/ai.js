@@ -318,7 +318,7 @@ Schema:
  "translation": { same fields, rubric: 准确性(6)/通顺度(4)/完整性(4)/书写与卷面(1) }
 }
 Score honestly. Omit the section that has no text.
-How to score: fill every rubric item with an integer or half point, then raw = the sum of all items (essay: 4+3+4+3+1=15, translation: 6+4+4+1=15). 书写与卷面 is worth 1 point maximum: 1 = neat and readable, 0.5 = readable with effort, 0 = largely illegible. raw must equal that sum exactly.
+How to score: give raw on the 15-point scale directly, as an examiner would; then fill the rubric items so they roughly add up to raw (essay: 4+3+4+3+1=15, translation: 6+4+4+1=15). 书写与卷面 is worth 1 point maximum: 1 = neat and readable, 0.5 = readable with effort, 0 = largely illegible.
 Handwriting is judged from the photo, not the transcript: score 书写与卷面 on legibility (clear 3, readable 2, hard to read 1, illegible 0). Handwriting does NOT change the official band by itself; if strokes are so unclear that words cannot be read, add a deduction of 0.5-1 named "字迹难以辨认" instead. Never invent content you cannot read.
 Bands: 13-15 优秀, 10-12.5 良好, 7-9.5 合格, 4-6.5 较弱, 1-3.5 较差.
 CET-6 expects 150-200 words and clearly higher vocabulary, sentence variety and cohesion than CET-4: do not give CET-4-level credit for simple language. CET-4 expects 120-180 words.

@@ -13,7 +13,7 @@
   const TYPE_LABEL = {
     word: '单词', phrase: '词组', sentence: '句子', syn: '同义替换',
     adv: '高级表达', example: '例句', translation: '翻译', essay: '范文',
-    feedback: '批改建议', report: '判分报告', pattern: '句式', template: '模板', article: '外刊'
+    feedback: '批改建议', report: '判分报告', pattern: '句式', template: '模板', article: '短文'
   };
   const CAT_LABEL = {
     opinion: '观点', topic: '话题', cause: '原因', effect: '结果',
@@ -339,7 +339,7 @@
       '</button></section>' +
       '<section class="section"><button class="card daily-read" data-action="reading" style="width:100%;text-align:left">' +
         '<div class="row"><span class="menu-icon">' + CET.icon('book') + '</span><div class="grow"><b style="font-size:14px">外刊精读</b>' +
-          '<div class="tiny muted mt6">' + (state.articles && state.articles.articles ? articles().length + ' 篇' : '外刊阅读') + '</div></div>' + CET.icon('chevronRight') + '</div>' +
+          '<div class="tiny muted mt6">' + (state.articles && state.articles.articles ? articles().length + ' 篇' : '短文阅读') + '</div></div>' + CET.icon('chevronRight') + '</div>' +
       '</button></section>' +
       '<section class="section"><details class="fold notice-card">' +
         '<summary>两种 OCR 模式 <span class="cat-count">手写请用云端 OCR</span></summary>' +
@@ -1948,7 +1948,7 @@
         '</section><section class="section" id="article-list">' + articleListHtml() + '</section>';
     }
     return '<section class="section" style="margin-top:0">' +
-      '<div class="section-head"><div><h1 style="font-size:24px;letter-spacing:-.7px">外刊精读</h1>' +
+      '<div class="section-head"><div><h1 style="font-size:24px;letter-spacing:-.7px">语境精读</h1>' +
         '<p class="tiny muted" style="margin-top:3px">' + articleMixLabel() + ' · 已读 ' + readSet().size + ' / ' + articles().length + '</p></div>' +
         '<button class="btn btn-soft btn-sm" data-tab="scan">' + CET.icon('arrowLeft') + '返回</button></div>' +
       '<div class="search-box mt14"><span>' + CET.icon('search') + '</span><input id="article-search" type="search" placeholder="搜索文章标题、主题，如 教育 / 科技" autocomplete="off">' +
@@ -1960,7 +1960,7 @@
       '<section class="section" id="article-search-results">' + (state.articleQuery ? articleListHtml() : '') + '</section>';
   }
 
-  /** Shared pager for the long lists (外刊 / 句式 / 收藏). */
+  /** Shared pager for the long lists (短文 / 句式 / 收藏). */
   function listPagerHtml(page, pages, action) {
     if (pages <= 1) return '';
     return '<div class="pager">' +
@@ -1993,7 +1993,7 @@
   }
 
   function articleCard(a) {
-    const item = { type: 'article', term: a.title, sub: a.summary, source: '外刊精读', payload: { id: a.id } };
+    const item = { type: 'article', term: a.title, sub: a.summary, source: '语境精读', payload: { id: a.id } };
     const adapted = a.sourceType === 'adapted';
     return '<article class="card article-card" data-open-article="' + a.id + '">' +
       '<div class="row wrap" style="gap:5px"><span class="badge ' + (a.level === 4 ? 'lv4' : 'lv6') + '">CET-' + a.level + '</span>' +
@@ -2018,7 +2018,7 @@
     if (stat && stat.textContent.includes('已读')) {
       stat.textContent = articleMixLabel() + ' · 已读 ' + readSet().size + ' / ' + articles().length;
     }
-    const item = { type: 'article', term: a.title, sub: a.summary, source: '外刊精读', payload: { id: a.id } };
+    const item = { type: 'article', term: a.title, sub: a.summary, source: '语境精读', payload: { id: a.id } };
     const tokens = Dict.tokenize(a.text);
     const key = Dict.keyItems(tokens, 12);
     const words = a.text.split(/\s+/).length;
@@ -2029,7 +2029,7 @@
         '<span class="right">' + CET.fav.button(item) + '</span></div></div>';
 
     if (a.sourceType === 'adapted' && a.ref) {
-      html += '<div class="detail-block"><div class="detail-title"><h3>原文参考</h3><span>非本文原文</span></div>' +
+      html += '<div class="detail-block"><div class="detail-title"><h3>话题来源</h3><span>非本文原文</span></div>' +
         '<div class="ref-box"><div class="ref-head"><span class="tiny muted">' + esc(a.ref.media || '') + (a.ref.date ? ' · ' + esc(a.ref.date) : '') + '</span></div>' +
           '<div class="ref-title">' + esc(a.ref.title || '') + '</div>' +
           '<a class="ref-link" href="' + CET.escAttr(a.ref.url) + '" target="_blank" rel="noopener">打开原文 ↗</a>' +
@@ -3825,7 +3825,7 @@
     '<section class="section" id="fav-list">' + favListHtml() + '</section>';
   }
 
-  /** Bucket a saved item into 单词 / 词组 / 句式 / 外刊（外加按需出现的句子、其他）。 */
+  /** Bucket a saved item into 单词 / 词组 / 句式 / 短文（外加按需出现的句子、其他）。 */
   function favBucket(type) {
     if (type === 'word' || type === 'syn' || type === 'adv' || type === 'example') return 'word';
     if (type === 'phrase') return 'phrase';
@@ -3839,7 +3839,7 @@
 
   const FAV_BUCKETS = [
     ['all', '全部'], ['word', '单词'], ['phrase', '词组'],
-    ['pattern', '句式'], ['reading', '外刊'], ['sentence', '句子'],
+    ['pattern', '句式'], ['reading', '短文'], ['sentence', '句子'],
       ['essay', '范文'], ['translation', '翻译'], ['other', '其他']
   ];
 
@@ -3988,7 +3988,7 @@
     const patterns = rest.filter((x) => x.type === 'pattern' || x.type === 'template');
     if (patterns.length) sections.push({ id: 'pattern', title: '句式与模板', icon: 'quote', count: patterns.length, html: wordListCards(patterns) });
     const reads = rest.filter((x) => x.type === 'article');
-    if (reads.length) sections.push({ id: 'reading', title: '外刊阅读', icon: 'book', count: reads.length, html: wordListCards(reads) });
+    if (reads.length) sections.push({ id: 'reading', title: '短文阅读', icon: 'book', count: reads.length, html: wordListCards(reads) });
     const trans = rest.filter((x) => x.type === 'translation');
     if (trans.length) sections.push({ id: 'trans', title: '翻译与批改', icon: 'translate', count: trans.length, html: wordListCards(trans) });
     const feedback = rest.filter((x) => x.type === 'feedback' || x.type === 'report');
@@ -4185,7 +4185,7 @@
         menuItem('info', 'AI 模型', (CET.AI && CET.AI.getConfig ? (CET.AI.getConfig().model || '未选模型') : '未配置'), 'ai-model-settings') +
       '</div></section>' +
       '<section class="section"><div class="section-head"><h2>学习工具</h2></div><div class="menu">' +
-        menuItem('book', '外刊精读', articleMixLabel(), 'reading') +
+        menuItem('book', '语境精读', articleMixLabel(), 'reading') +
         menuItem('quote', '满分句式库', '高分句式、范文模板与套用框架', 'patterns') +
         menuItem('award', '评分标准', '四六级题型权重与 15 分制档位', 'rubric') +
       '</div></section>' +

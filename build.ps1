@@ -26,8 +26,8 @@ if (-not $Py -or -not (Test-Path $Py)) {
     throw ' 找不到可用的 Python：请设置 $env:CET46_PYTHON = "python.exe 的完整路径"'
 }
 
-$VersionCode = 4
-$VersionName = '1.2.0'
+$VersionCode = 5
+$VersionName = '1.2.1'
 
 $env:JAVA_HOME = $Jdk
 $env:PATH = (Join-Path $Jdk 'bin') + ';' + $env:PATH

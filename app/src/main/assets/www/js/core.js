@@ -33,7 +33,7 @@
   CET.store = store;
 
   /* Single source of truth for the version shown in-app and in exports. */
-  CET.APP_VERSION = '1.2.0';
+  CET.APP_VERSION = '1.2.1';
 
   const state = CET.state = {
     tab: 'scan',

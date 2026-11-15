@@ -112,6 +112,8 @@ HANDOFF.md                           开发交接：构建细节与踩坑记录
 - 例句 Tatoeba（CC BY 2.0 FR）
 - 同义词 Princeton WordNet 3.0
 - 离线识别 Google ML Kit
+- 云端识别与评分接口 DeepSeek（`/v1/tools/ocr`，按页计费）
+
 
 ## 许可
 

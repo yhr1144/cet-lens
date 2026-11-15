@@ -54,4 +54,5 @@
 - 词库 [ECDICT](https://github.com/skywind3000/ECDICT)（MIT 许可）
 - 例句 Tatoeba（CC BY 2.0 FR）
 - 同义词 Princeton WordNet 3.0
+- 云端识别与评分接口 DeepSeek（`/v1/tools/ocr`，按页计费）
 - 离线识别 Google ML Kit

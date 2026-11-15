@@ -5,7 +5,7 @@
 
 一个离线优先的 Android 四六级精读与判分工具。单 APK，词库与 OCR 模型随包内置；识别与批改可选接自己的 DeepSeek API Key，费用直接记在自己账号，开发者不抽成。
 
-当前版本 **1.2.0**（versionCode 4），Android 7.0（API 24）及以上。
+当前版本 **1.2.6**（versionCode 10），Android 7.0（API 24）及以上。
 
 ## 作者与分工
 

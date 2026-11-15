@@ -325,6 +325,19 @@ Schema:
  },
  "translation": { same fields; band by 准确性/通顺度/完整性 }
 }
+Official translation band descriptions (use these for the translation section):
+- 13-15 分：译文准确表达原文意思，文字通顺连贯，基本上无语言错误，仅有个别小错。
+- 10-12 分：译文基本准确表达原文意思，文字较通顺，有少量语言错误。
+- 7-9 分：译文勉强表达原文意思，文字勉强连贯，语言错误相当多，其中有一些是严重错误。
+- 4-6 分：译文仅部分表达原文意思，连贯性差，有较多严重语言错误。
+- 1-3 分：译文支离破碎，大部分句子有错误，多数为严重错误。
+- 0 分：未作答。
+Translation rules:
+1. Judge 准确性 first: does the translation convey the source's information points? Missing or wrong信息点 is the main reason to drop a band.
+2. Then judge 通顺度: English that reads naturally at the target level.
+3. The translation band follows the translation descriptions above, NOT the writing ones.
+4. Do not reward translationese or word-for-word rendering; ignore anything the student crossed out.
+
 Official band descriptions (use these to decide band and raw):
 - 13-15 分：切题，表达思想清楚，文字通顺连贯，基本上无语言错误，仅有个别小错。
 - 10-12 分：切题，表达思想清楚，文字较连贯，但有少量语言错误。

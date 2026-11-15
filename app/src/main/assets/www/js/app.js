@@ -338,7 +338,7 @@
           '<div class="tiny muted mt6">144 个高分句式 · 8 套范文模板 · 可直接搜索查阅</div></div>' + CET.icon('chevronRight') + '</div>' +
       '</button></section>' +
       '<section class="section"><button class="card daily-read" data-action="reading" style="width:100%;text-align:left">' +
-        '<div class="row"><span class="menu-icon">' + CET.icon('book') + '</span><div class="grow"><b style="font-size:14px">外刊精读</b>' +
+        '<div class="row"><span class="menu-icon">' + CET.icon('book') + '</span><div class="grow"><b style="font-size:14px">语境精读</b>' +
           '<div class="tiny muted mt6">' + (state.articles && state.articles.articles ? articles().length + ' 篇' : '短文阅读') + '</div></div>' + CET.icon('chevronRight') + '</div>' +
       '</button></section>' +
       '<section class="section"><details class="fold notice-card">' +

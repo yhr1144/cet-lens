@@ -33,7 +33,7 @@
   CET.store = store;
 
   /* Single source of truth for the version shown in-app and in exports. */
-  CET.APP_VERSION = '1.2.1';
+  CET.APP_VERSION = '1.2.2';
 
   const state = CET.state = {
     tab: 'scan',
@@ -265,7 +265,7 @@
     },
     exportText() {
       const list = fav.list();
-      const typeName = { word: '单词', phrase: '词组', sentence: '句子', syn: '同义词', adv: '高级表达', example: '例句', translation: '翻译', feedback: '批改建议', report: '判分报告', pattern: '句式', template: '模板', article: '外刊' };
+      const typeName = { word: '单词', phrase: '词组', sentence: '句子', syn: '同义词', adv: '高级表达', example: '例句', translation: '翻译', feedback: '批改建议', report: '判分报告', pattern: '句式', template: '模板', article: '短文' };
       const lines = ['CET Lens · 收藏夹', '共 ' + list.length + ' 条', ''];
       list.forEach((x, i) => {
         const type = (x.type === 'phrase' && !/\s/.test(x.term)) ? 'word' : x.type;

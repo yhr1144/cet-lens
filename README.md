@@ -7,22 +7,6 @@
 
 当前版本 **1.2.6**（versionCode 10），Android 7.0（API 24）及以上。
 
-## 作者与分工
-
-| 角色 | 承担的工作 |
-|---|---|
-| **[yhr1144](https://github.com/yhr1144)** | 项目发起人。确定产品定位与目标用户，设计和拍板全部交互流程（扫描两档、批改四步闸门、收藏分类、范文入口），在真机上逐条验收，判断哪些功能该删、哪些该留 |
-| **AI 编程助手**（DeepSeek Harness） | 按需求写实现：Android 壳与 WebView 前端、DeepSeek OCR 与批改接入、构建脚本、README 与发行说明，以及绝大部分 bug 的定位与修复 |
-| **第三方组件** | 离线识别 Google ML Kit；词库 ECDICT（MIT）；例句 Tatoeba（CC BY 2.0 FR）；同义词 Princeton WordNet 3.0 |
-
-产品的判断来自人，代码的实现来自 AI。所有决定权、测试与验收在项目发起人手里。
-
-### 关于提交历史里的 `cet46`
-
-早期提交的作者显示为 `cet46 <cet46@local>`。这是项目发起人本机的占位 git 身份，与 [yhr1144](https://github.com/yhr1144) 是**同一个人**，不是第二位贡献者。
-
-改邮箱之前的历史提交不会关联到 GitHub 账号，因此不计入贡献图；`13d21d0` 之后的提交统一使用 `yhr1144 <yehr1144@outlook.com>`。
-
 ## 功能
 
 **扫描精读**
@@ -72,7 +56,7 @@
 powershell -NoProfile -ExecutionPolicy Bypass -File build.ps1
 ```
 
-产物在 `dist/cet46-coach-1.2.0.apk`。
+产物在 `dist/cet46-coach-1.2.6.apk`。
 
 构建依赖（均已随仓库提供）：
 
@@ -99,6 +83,22 @@ HANDOFF.md                           开发交接：构建细节与踩坑记录
 - 手写涂改由模型自行判断，可能残留划掉的词
 - 云端识别与批改需要联网和有效 Key；Key 无效、欠费、并发满都会在页面上直接显示原因
 - 无多页扫描、无文本校对入口、无数据导出
+
+## 作者与分工
+
+| 角色 | 承担的工作 |
+|---|---|
+| **[yhr1144](https://github.com/yhr1144)** | 项目发起人。确定产品定位与目标用户，设计和拍板全部交互流程（扫描两档、批改四步闸门、收藏分类、范文入口），在真机上逐条验收，判断哪些功能该删、哪些该留 |
+| **AI 编程助手**（DeepSeek Harness） | 按需求写实现：Android 壳与 WebView 前端、DeepSeek OCR 与批改接入、构建脚本、README 与发行说明，以及绝大部分 bug 的定位与修复 |
+| **第三方组件** | 离线识别 Google ML Kit；词库 ECDICT（MIT）；例句 Tatoeba（CC BY 2.0 FR）；同义词 Princeton WordNet 3.0 |
+
+产品的判断来自人，代码的实现来自 AI。所有决定权、测试与验收在项目发起人手里。
+
+### 关于提交历史里的 `cet46`
+
+早期提交的作者显示为 `cet46 <cet46@local>`。这是项目发起人本机的占位 git 身份，与 [yhr1144](https://github.com/yhr1144) 是**同一个人**，不是第二位贡献者。
+
+改邮箱之前的历史提交不会关联到 GitHub 账号，因此不计入贡献图；`13d21d0` 之后的提交统一使用 `yhr1144 <yehr1144@outlook.com>`。
 
 ## 致谢
 
